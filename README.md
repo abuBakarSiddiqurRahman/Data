@@ -8,7 +8,7 @@
 2. [Data Exploration](https://github.com/121107/Data/blob/master/Data%20Exploration)
    * This will appear soon
 
-![A Code Image][cat](https://placekitten.com/200/300)
+![A cat image](https://placekitten.com/200/300)
 
 **License**
 >MIT License
