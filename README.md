@@ -15,6 +15,8 @@
 
    * to watch YouTube videos or gather knowledge from other sources about R to accomplish data cleaning
 
+
+
 **(ii) Observing data:** (Oct 10 Oct 13)
 
     * Where does the data come from (data source)? How much information does it provide us with about a particular task based on the data? The information of different existing variables in data to predict the dependent variables (target variable)?  
@@ -24,6 +26,7 @@
     * to find whether there are any intellectual policy constraints in the data or not. Is there enough information about licensing of the data (if not, what is missing)?
 
 **_Note 1: writing limitation for Observing data is 1-2 paragraph_**
+
 
 
 **(iii) Make Decisions:** (Oct 14 to Oct 17)
@@ -43,13 +46,14 @@ To describe the logic if any information (variables) needs to add in the data th
 **_Note 3: writing limitation for remediate data is 1 paragraph_**
 
 
+
 **(iv) R code** (oct 18 to Oct 22)
 
 To do the R code for the data cleaning (parsing, eliminate unnecessary strings: regex, find common words etc.)
 
 
 
-**(iv) Writing Documentation and update the README.md in GitHub** (Oct 23 to Oct 28)
+**(v) Writing Documentation and update the README.md in GitHub** (Oct 23 to Oct 28)
 
     * An R script and a text description will have to be attached to the writing documentation. The text description is nothing but the code description of R.
 
