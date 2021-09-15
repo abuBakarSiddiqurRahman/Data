@@ -1,12 +1,12 @@
 ## Course 8600
 ### Data to Decision
-### Dr. Andrea Grover   
+### Dr. Andrea Grover     
 
 **_There are two Individual Assignment part for the Course. These are:_**
 1. [##Data Entry Analysis](https://github.com/121107/Data/blob/master/Data%20Entry%20Analysis)
 
 #Data cleaning and documentation
-**(i) Literature review:** (Oct 7 to Oct 9)  
+**(i) Literature review:** (Oct 7 to Oct 9) 
 
    * What is data cleaning and documentation?  
 
