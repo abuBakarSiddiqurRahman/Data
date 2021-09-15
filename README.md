@@ -5,8 +5,8 @@
 **_There are two Individual Assignment part for the Course. These are:_**
 ## 1. [Data Entry Analysis](https://github.com/121107/Data/blob/master/Data%20Entry%20Analysis)
 
-# Data cleaning and documentation
-**(i) Literature review:** (Oct 7 to Oct 9) 
+**Data cleaning and documentation**
+**(i) Literature review:** (Oct 7 to Oct 9)
 
    * What is data cleaning and documentation?  
 
