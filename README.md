@@ -73,4 +73,4 @@ To do the R code for the data cleaning (parsing, eliminate unnecessary strings: 
 ![A cat image](https://placekitten.com/200/300)
 
 ## License
-The [license](https://github.com/121107/Data/blob/master/License)can be found here.
+The [license](https://github.com/121107/Data/blob/master/License) can be found here.
