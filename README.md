@@ -3,7 +3,7 @@
 
 ### About Myself
 
-I am [Abu  Bakar Siddiqur Rahman](https://www.linkedin.com/in/abu-bakar-siddiqur-rahman-rocky-8a6787119/), a first year (ongoing second semester) PhD student at the University of Nebraska at Omaha. I have completed Masters in Computer Science from Centro de Investigacion en Computacion, Instituto Politecnico Nacional on 2021. In previous, I was in Rajshahi University of Engineering and Technology to complete my undergraduate degree from the dept. of Electrical and Electronic Engineering on 2018. My research interest in on Machine Learning Applications. I would love to travel and see the green nature. Besides that, I also would like to writing poems, cooking, practicing taekwondo.
+I am [Abu  Bakar Siddiqur Rahman](https://www.linkedin.com/in/abu-bakar-siddiqur-rahman-rocky-8a6787119/), a first year (ongoing second semester) PhD student at the University of Nebraska at Omaha. I have completed Masters in Computer Science from Centro de Investigacion en Computacion, Instituto Politecnico Nacional on 2021. In previous, I was in Rajshahi University of Engineering and Technology to complete my undergraduate degree from the dept. of Electrical and Electronic Engineering on 2018. My research interest is on Machine Learning Applications. I would love to travel and see the green nature. Besides that, I also would like to writing poems, cooking, practicing taekwondo.
 
 
 ### Course Learning
