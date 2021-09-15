@@ -1,6 +1,12 @@
-## Course 8600
-### Data to Decision
-### Dr. Andrea Grover     
+## Course 8600 Data to Decision
+### Advisor Dr. Andrea Grover
+
+### About Myself
+
+I am [Abu  Bakar Siddiqur Rahman](https://www.linkedin.com/in/abu-bakar-siddiqur-rahman-rocky-8a6787119/), a first year (ongoing second semester) PhD student at the University of Nebraska at Omaha. I have completed Masters in Computer Science from Centro de Investigacion en Computacion, Instituto Politecnico Nacional on 2021. In previous, I was in Rajshahi University of Engineering and Technology to complete my undergraduate degree from the dept. of Electrical and Electronic Engineering on 2018. My research interest in on Machine Learning Applications. I would love to travel and see the green nature. Besides that, I also would like to writing poems, cooking, practicing taekwondo.
+
+
+### Course Learning
 
 **_There are two Individual Assignment part for the Course. These are:_**
 ## 1. [Data Entry Analysis](https://github.com/121107/Data/blob/master/Data%20Entry%20Analysis)
@@ -13,7 +19,7 @@
 
    * What decision should be considered to data cleaning task?
 
-   * to watch YouTube videos or gather knowledge from other sources about R to accomplish data cleaning
+   * To watch YouTube videos or gather knowledge from other sources about R to accomplish data cleaning
 
 
 
@@ -23,7 +29,7 @@
 
     * How many rows and columns have the data sets for each data source? (Must include each row and column name to better understanding)
 
-    * to find whether there are any intellectual policy constraints in the data or not. Is there enough information about licensing of the data (if not, what is missing)?
+    * To find whether there are any intellectual policy constraints in the data or not. Is there enough information about licensing of the data (if not, what is missing)?
 
 **_Note 1: writing limitation for Observing data is 1-2 paragraph_**
 
@@ -33,9 +39,9 @@
 
 **A. Metadata**
 
-To find relevant information to interpret and understand the data  
+  * To find relevant information to interpret and understand the data  
 
-To find missing information from data (if needed). Missing information means missing values, unstandardized content, entity matching, integration, etc.  
+  * To find missing information from data (if needed). Missing information means missing values, unstandardized content, entity matching, integration, etc.  
 
 **_Note 2: writing limitation for metadata is 1-2 paragraph_**
 
