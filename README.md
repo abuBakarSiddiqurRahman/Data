@@ -8,7 +8,7 @@
 #Data cleaning and documentation
 **(i) Literature review:** (Oct 7 to Oct 9)  
 
-   * What is data cleaning and documentation?
+   * What is data cleaning and documentation?  
 
    * What decision should be considered to data cleaning task?
 
