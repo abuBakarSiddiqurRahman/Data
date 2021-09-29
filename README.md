@@ -19,7 +19,7 @@ I am [Abu  Bakar Siddiqur Rahman](https://www.linkedin.com/in/abu-bakar-siddiqur
 ## 2. [Data Exploration](https://github.com/121107/Data/blob/master/Data%20Exploration)
    * This will appear soon
 
-![Scatter Plot with three variables](C:/Users/abubakarsiddiqurra/Documents/Data/R2.png)
+![Scatter Plot with three variables]()
 
 ## License
 The [license](https://github.com/121107/Data/blob/master/License) can be found here.
