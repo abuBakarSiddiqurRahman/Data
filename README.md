@@ -8,14 +8,18 @@ I am [Abu  Bakar Siddiqur Rahman](https://www.linkedin.com/in/abu-bakar-siddiqur
 
 ### Course Learning
 
-**_There are two Individual Assignment part for the Course. These are:_**
-## 1. [Data Entry Analysis](https://github.com/121107/Data/blob/master/Data%20Entry%20Analysis)
+**_The Learning outcomes from the course is_**
+
+1. How to write Readme file by Markdown
+2. Make decision by observing Data
+3. How to clean the Data
+4. Data exploration by R
 
 
 ## 2. [Data Exploration](https://github.com/121107/Data/blob/master/Data%20Exploration)
    * This will appear soon
 
-![A cat image](C:/Users/abubakarsiddiqurra/Documents/Data/R2.png)
+![Scatter Plot with three variables](C:/Users/abubakarsiddiqurra/Documents/Data/R2.png)
 
 ## License
 The [license](https://github.com/121107/Data/blob/master/License) can be found here.
