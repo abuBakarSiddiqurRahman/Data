@@ -12,7 +12,7 @@ I am [Abu  Bakar Siddiqur Rahman](https://www.linkedin.com/in/abu-bakar-siddiqur
 
 1. How to write Readme file by Markdown
 2. Make decision by observing Data
-3. How to clean the Data
+3. How to clean the Data      
 4. Data exploration by R
 
 
