@@ -20,7 +20,7 @@ I am [Abu  Bakar Siddiqur Rahman](https://www.linkedin.com/in/abu-bakar-siddiqur
    * This will appear soon
 
 
-   ![Scatter plot](https://drive.google.com/file/d/1Guzo85BhZ-QG3XqRtJvd2ZXpGElzm8Ue/view?usp=sharing)
+   ![Scatter plot](https://github.com/121107/Data/blob/master/Image/R2.png)
 
 
 
