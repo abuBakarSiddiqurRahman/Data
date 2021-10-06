@@ -26,10 +26,10 @@ This plot shows which facility has most of the recordID participated based on th
 **_Scatter plot with three variables_**
 ![Scatter plot with three variables](https://github.com/121107/Data/blob/master/Images/4.PNG)
 
-     
+
 ### Faceted plot   
-which staff works mostly with all ethnicity
-(this will identify  communication skills) which staff works with the his/her normal work schedule or not
+This plot shows which staff works mostly with all ethnicity
+(this will identify  communication skills) and which staff works with his/her normal work schedule or not
 
 **_Faceted plot_**
 ![Faceted plot](https://github.com/121107/Data/blob/master/Images/5.PNG)
