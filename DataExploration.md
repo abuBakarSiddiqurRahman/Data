@@ -5,17 +5,39 @@ This plot will help to understand by getting the average age
 for each program. The data visualization provide a quick view
 that which age group prefer which program.
 
+```
+df <- group_by(dat, program_name)
+df2 <- summarise(df, ageMean = mean(age))  
+
+ggplot(data = df2, mapping = aes(x = program_name, y = ageMean)) +
+  geom_point() +
+  labs(title= "Scatter Plot of 2 Variables")
+```
+
 
 **_Scatter plot with two variables_**
 ![Scatter plot with two variables](https://github.com/121107/Data/blob/master/Images/1.PNG)
 
 
+```
+dat <- read.csv("HFS.csv") # entire data set
+ggplot(data = dat, mapping = aes(x = program_name, y = age)) +
+  geom_point()+
+  labs(title= "Scatter Plot of 2 Variables with all values")
+```
 
   **_Scatter plot with two variables with all values (two variables)_**
   ![Scatter plot with two variables](https://github.com/121107/Data/blob/master/Images/2.PNG)
 
 ### Scatter Plot of two variables with trend line
 This plot shows a linear relationship between age and recordID
+
+```
+ggplot(data = dat, mapping = aes(x = age, y = recordID)) +
+  geom_point()+
+  geom_smooth(method = 'lm', se= FALSE)+
+  labs(title= "Scatter Plot of 2 Variables with trend line")
+```
 
 **_Scatter plot with two variables with all values with trend line_**
 ![Scatter plot with two variables with trend line](https://github.com/121107/Data/blob/master/Images/3.PNG)
