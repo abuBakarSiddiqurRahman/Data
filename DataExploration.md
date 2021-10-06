@@ -6,6 +6,16 @@ for each program. The data visualization provide a quick view
 that which age group prefer which program.
 
 ```
+# initial adjustment in R
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+dat <- read.csv("HFS.csv")
+
+install.packages("dplyr")    # alternative installation of the %>%
+library(dplyr)
+install.packages("ggplot2")
+library(ggplot2)
+
+################
 df <- group_by(dat, program_name)
 df2 <- summarise(df, ageMean = mean(age))  
 
