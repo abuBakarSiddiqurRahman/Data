@@ -6,9 +6,9 @@ for each program. The data visualization provide a quick view
 that which age group prefer which program.
 
 > library(ggplot2)
-df <- group_by(dat, program_name)
-df2 <- summarise(df, ageMean = mean(age))
-ggplot(data = df2, mapping = aes(x = program_name, y = ageMean)) +
+  df <- group_by(dat, program_name)
+  df2 <- summarise(df, ageMean = mean(age))
+  ggplot(data = df2, mapping = aes(x = program_name, y = ageMean)) +
   geom_point()
 
 **_Scatter plot with two variables_**
