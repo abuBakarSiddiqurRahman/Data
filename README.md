@@ -16,11 +16,9 @@ I am [Abu  Bakar Siddiqur Rahman](https://www.linkedin.com/in/abu-bakar-siddiqur
 4. Data exploration by R
 
 
-## [Data Exploration](https://github.com/121107/Data/blob/master/Data%20Exploration)
-   * This will appear soon
+## Data Exploration
+   * [Data Exploration](https://github.com/121107/Data/blob/master/DataExploration.md) is in here
 
-
-   ![Scatter plot](https://github.com/121107/Data/blob/master/Image/R2.png)
 
 
 
