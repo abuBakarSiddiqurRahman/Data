@@ -31,7 +31,7 @@ ggplot(data = df2, mapping = aes(x = program_name, y = ageMean)) +
 ![Scatter plot with two variables](https://github.com/121107/Data/blob/master/Images/1.PNG)
 
 
-```
+``` {r}
 #### Scatter plot of 2 variables with all values #####
 
 dat <- read.csv("HFS.csv") # entire data set
