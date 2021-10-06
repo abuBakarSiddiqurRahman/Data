@@ -5,7 +5,7 @@ This plot will help to understand by getting the average age
 for each program. The data visualization provide a quick view
 that which age group prefer which program.
 
-```
+```R
 ##### initial adjustment in R ######
 
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
