@@ -31,7 +31,7 @@ ggplot(data = df2, mapping = aes(x = program_name, y = ageMean)) +
 ![Scatter plot with two variables](https://github.com/121107/Data/blob/master/Images/1.PNG)
 
 
-``` {r}
+```R
 #### Scatter plot of 2 variables with all values #####
 
 dat <- read.csv("HFS.csv") # entire data set
@@ -46,7 +46,7 @@ ggplot(data = dat, mapping = aes(x = program_name, y = age)) +
 ### Scatter Plot of two variables with trend line
 This plot shows a linear relationship between age and recordID
 
-```
+```R
 #### Scatter plot of 2 variables with trend line #####
 
 ggplot(data = dat, mapping = aes(x = age, y = recordID)) +
@@ -61,7 +61,7 @@ ggplot(data = dat, mapping = aes(x = age, y = recordID)) +
 ### Scatter plot with three variables
 This plot shows which facility has most of the recordID participated based on the gender. The plot indicates which facility has more male or female no strange outliers in the graph
 
-```
+```R
 #### Scatter plot of 3 variables #####
 
 ggplot(data = dat, mapping = aes(facility, recordID, color = gender))+
@@ -80,11 +80,10 @@ ggplot(data = dat, mapping = aes(facility, recordID, color = gender))+
 This plot shows which staff works mostly with all ethnicity
 (this will identify  communication skills) and which staff works with his/her normal work schedule or not
 
-```
+```R
 #### Faceted plot ##########
 
-ggplot(data = dat, mapping = aes(x = staff_name, y = NormalWorkHours
-                              )) +
+ggplot(data = dat, mapping = aes(x = staff_name, y = NormalWorkHours)) +
   facet_wrap(~ ethnic_identity, nrow = 5)+
   theme(axis.text.x = element_text(angle=90, size = 8, face = "bold",
                                    hjust=1, vjust = 1, lineheight = 5))+
@@ -101,7 +100,7 @@ ggplot(data = dat, mapping = aes(x = staff_name, y = NormalWorkHours
 This plot shows the average hours worked by each job_title
 this gives an idea for the organizer which job holders have more work in average
 
-```
+```R
 #### Bar plot #########
 
 df5 <- dat %>% group_by(job_title) %>%
