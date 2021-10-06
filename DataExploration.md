@@ -6,7 +6,8 @@ for each program. The data visualization provide a quick view
 that which age group prefer which program.
 
 ```
-# initial adjustment in R
+##### initial adjustment in R ######
+
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 dat <- read.csv("HFS.csv")
 
