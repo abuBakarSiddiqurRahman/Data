@@ -23,6 +23,15 @@ This plot shows a linear relationship between age and recordID
 ### Scatter plot with three variables
 This plot shows which facility has most of the recordID participated based on the gender. The plot indicates which facility has more male or female no strange outliers in the graph
 
+```
+ggplot(data = dat, mapping = aes(facility, recordID, color = gender))+
+  geom_point(size = 0.8, alpha = 0.5)+
+  geom_smooth(method=lm, se=FALSE, col='red', size=2)+
+  theme(axis.text.x = element_text(angle=50, size = 8, face = "bold",
+                                   hjust=1, vjust = 1, lineheight = 5))+
+  labs(title= "Scatter Plot of 3 Variables")
+```
+
 **_Scatter plot with three variables_**
 ![Scatter plot with three variables](https://github.com/121107/Data/blob/master/Images/4.PNG)
 
@@ -31,6 +40,17 @@ This plot shows which facility has most of the recordID participated based on th
 This plot shows which staff works mostly with all ethnicity
 (this will identify  communication skills) and which staff works with his/her normal work schedule or not
 
+```
+ggplot(data = dat, mapping = aes(x = staff_name, y = NormalWorkHours
+                              )) +
+  facet_wrap(~ ethnic_identity, nrow = 5)+
+  theme(axis.text.x = element_text(angle=90, size = 8, face = "bold",
+                                   hjust=1, vjust = 1, lineheight = 5))+
+  geom_point(size = 0.8, alpha = 0.5)+
+  geom_smooth(method = "lm", se = FALSE)+
+  labs(title= "faceted plot")
+```
+
 **_Faceted plot_**
 ![Faceted plot](https://github.com/121107/Data/blob/master/Images/5.PNG)
 
@@ -38,6 +58,17 @@ This plot shows which staff works mostly with all ethnicity
 ### Bar plot
 This plot shows the average hours worked by each job_title
 this gives an idea for the organizer which job holders have more work in average
+
+```
+df5 <- dat %>% group_by(job_title) %>%
+  summarize(AvgTotalDuration = mean(duration_num))
+
+ggplot(data = df5, mapping = aes(x = job_title, y = AvgTotalDuration))+
+  geom_col(aes(fill=job_title))+
+  theme(axis.text.x = element_text(angle=90, size = 8, face = "bold",
+                                   hjust=1, vjust = 1, lineheight = 5))+
+labs(title= "bar plot")
+```
 
 **_Bar plot_**
 ![Bar plot](https://github.com/121107/Data/blob/master/Images/6.PNG)
