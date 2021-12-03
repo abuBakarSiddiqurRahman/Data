@@ -124,7 +124,44 @@ as.data.frame(table(Program_ID11$program_name))
       <td colspan="6">Substance use</td>
       <td colspan="6">88</td>
     </tr>
+  </tbody>
+</table>
+<hr/>
 
+```R
+as.data.frame(table(Program_ID11$program_name))
+```
+
+<p> The amount of patients that were admitted on multiple program
+(in this table, we showed a demo by only providing first 5 recordID)</p>
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> recordID </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> how many programs attend </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >1</td>
+      <td colspan="6" >1 </td>
+    </tr>
+    <tr style="text-align: center;">
+      <td colspan="6">2</td>
+      <td colspan="6">2</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">3</td>
+      <td colspan="6">2</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">4</td>
+      <td colspan="6">1</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">5</td>
+      <td colspan="6">2</td>
+    </tr>
   </tbody>
 </table>
 <hr/>
