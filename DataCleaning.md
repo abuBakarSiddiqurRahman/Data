@@ -200,12 +200,12 @@ as.data.frame(table(Program_Facility_Staff12$program_name))
 ```R
 as.data.frame(table(Program_Facility_Staff12$facility))
 ```
-<p> The job titles that were used more frequently based on specific programs and facilities.
+<p> The facility that were used more frequently based on specific programs and facilities.
 (in this table, we showed a demo by only providing first 5 job titles)</p>
 <table style="border: 1px solid black; width: 100%;">
   <thead style="border: 1px solid black">
     <tr>
-      <th colspan="6" style="background-color: #04AA6D; color: white;"> Job titles </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Facility </th>
       <th colspan="6" style="background-color: #04AA6D; color: white;"> how many programs attend </th>
     </tr>
   </thead>
@@ -229,6 +229,146 @@ as.data.frame(table(Program_Facility_Staff12$facility))
     <tr style="background-color: #f2f2f2; text-align: center;">
       <td colspan="6">Heartland Family Service - Child and Family Center</td>
       <td colspan="6">653</td>
+    </tr>
+  </tbody>
+</table>
+
+```R
+as.data.frame(table(Program_Facility_Staff12$job_title))
+```
+<p> The job titles that were used more frequently based on specific programs and facilities.
+(in this table, we showed a demo by only providing first 5 job titles)</p>
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Job titles </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> how many programs attend </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >ADMIN ASST</td>
+      <td colspan="6" >292 </td>
+    </tr>
+    <tr style="text-align: center;">
+      <td colspan="6">Billing Specialist</td>
+      <td colspan="6">5</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Case Coordinator</td>
+      <td colspan="6">12</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">CASE MANAGERS</td>
+      <td colspan="6">371</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Clinical Director</td>
+      <td colspan="6">31</td>
+    </tr>
+  </tbody>
+</table>
+
+### Table 3 and Table 3 Metadata
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The final table that we used for this research question was included by Program name, Facility name, and Unique Staff Title. We used this table in order to see whether staff are splitting their time between more than one facility or not.
+
+```R
+Program_Facility_uStaff13 <- unique(HFS[ , c('facility', 'program_name','staff_name' )])
+as.data.frame(table(Program_Facility_uStaff13$program_name))
+```
+<p> The amount of patients in each program based on facility and staff_name:</p>
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Program name </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Frequency </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >Gambling</td>
+      <td colspan="6" >10 </td>
+    </tr>
+    <tr style="text-align: center;">
+      <td colspan="6">Mental health</td>
+      <td colspan="6">165</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Substance use</td>
+      <td colspan="6">64</td>
+    </tr>
+  </tbody>
+</table>
+
+```R
+as.data.frame(table(Program_Facility_uStaff13$facility))
+```
+<p> The facility that were used more frequently based on program_name and staff_name.
+(in this table, we showed a demo by only providing first 5 job titles)</p>
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Facility </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> how many programs and facility attend </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >Abraham Lincoln High School</td>
+      <td colspan="6" >3</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td colspan="6">Bellevue Reporting Center</td>
+      <td colspan="6">8</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Center Mall Office</td>
+      <td colspan="6">8</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Heartland Family Service - Central</td>
+      <td colspan="6">38</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Heartland Family Service - Child and Family Center</td>
+      <td colspan="6">16</td>
+    </tr>
+  </tbody>
+</table>
+
+```R
+as.data.frame(table(Program_Facility_Staff12$staff_name))
+```
+<p> The staff name that were used more frequently based on program_name and facilities.
+(in this table, we showed a demo by only providing first 5 job titles)</p>
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Staff name </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> how many programs and facility attend </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >Anderson, Florentina</td>
+      <td colspan="6" >292 </td>
+    </tr>
+    <tr style="text-align: center;">
+      <td colspan="6">Anderson, Melanie</td>
+      <td colspan="6">3</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Barker, Emily</td>
+      <td colspan="6">1</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Barrett, Becky</td>
+      <td colspan="6">1</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Bundy, Nicholas</td>
+      <td colspan="6">1</td>
     </tr>
   </tbody>
 </table>
