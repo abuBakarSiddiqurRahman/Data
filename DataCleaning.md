@@ -476,7 +476,7 @@ as.data.frame(table(HFS$gender_identity))
 ```R
 as.data.frame(table(HFS2$simple_race))
 ```
-<p> **_The sample race and its frequency after cleaning the dataset_**
+<p> The sample race and its frequency after cleaning the dataset
 </p>
 <table style="border: 1px solid black; width: 100%;">
   <thead style="border: 1px solid black">
