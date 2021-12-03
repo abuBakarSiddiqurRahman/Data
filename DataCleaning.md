@@ -93,7 +93,7 @@ Our research questions are
     </tr>
   </tbody>
 </table>
-<hr/>
+
 
 ### Table 1 and Table 1 Metadata
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; We subset the data based on the research questions. The first table was included Program name and Unique Record ID. In this data set, we were able to show the amount of patients in each program. The amount of patients that were in multiple programs can also be showed by the table.
@@ -126,7 +126,7 @@ as.data.frame(table(Program_ID11$program_name))
     </tr>
   </tbody>
 </table>
-<hr/>
+
 
 ```R
 as.data.frame(table(Program_ID11$program_name))
@@ -164,4 +164,71 @@ as.data.frame(table(Program_ID11$program_name))
     </tr>
   </tbody>
 </table>
-<hr/>
+
+
+### Table 2 and Table 2 Metadata
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The second data table was included by Program name, Facility name, and Job Tile variables. The subset of HFS dataset (table 2) showed which job titles are used more for specific programs and facilities.
+
+```R
+Program_Facility_Staff12<-subset(HFS[,c('program_name','facility', 'job_title')])
+as.data.frame(table(Program_Facility_Staff12$program_name))
+```
+<p> The amount of patients in each program based on facility and job title:</p>
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Program name </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Frequency </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >Gambling</td>
+      <td colspan="6" >87 </td>
+    </tr>
+    <tr style="text-align: center;">
+      <td colspan="6">Mental health</td>
+      <td colspan="6">6860</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Substance use</td>
+      <td colspan="6">1798</td>
+    </tr>
+  </tbody>
+</table>
+
+```R
+as.data.frame(table(Program_Facility_Staff12$facility))
+```
+<p> The job titles that were used more frequently based on specific programs and facilities.
+(in this table, we showed a demo by only providing first 5 job titles)</p>
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Job titles </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> how many programs attend </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >Abraham Lincoln High School</td>
+      <td colspan="6" >17 </td>
+    </tr>
+    <tr style="text-align: center;">
+      <td colspan="6">Bellevue Reporting Center</td>
+      <td colspan="6">130</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Center Mall Office</td>
+      <td colspan="6">414</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Heartland Family Service - Central</td>
+      <td colspan="6">1359</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Heartland Family Service - Child and Family Center</td>
+      <td colspan="6">653</td>
+    </tr>
+  </tbody>
+</table>
