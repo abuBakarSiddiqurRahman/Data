@@ -5,6 +5,9 @@ Read the data
 HFS <- read.csv("../../HFS Service Data.csv")
 ```
 
+# Variables that were focused for data cleaning
+Based on the research questions, we are mainly focusing on the following variables: program name, facility, job title, staff name, record id, gender identity, age, simple race, zip, state, general location, and event name.
+
 # Research Questions
 Our research questions are
 <ol>
@@ -55,7 +58,7 @@ Our research questions are
 </table>
 <br/>
 
-<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For this we will be comparing the variables in the following ways:</p>
+<p> the variables were compared based on the below table:</p>
 <table style="border: 1px solid black; width: 100%;">
   <thead style="border: 1px solid black">
     <tr>
@@ -92,5 +95,36 @@ Our research questions are
 </table>
 <hr/>
 
-# Variables that were focused for data cleaning
-Based on the research questions, we are mainly focusing on the following variables: program name, facility, job title, staff name, record id, gender identity, age, simple race, zip, state, general location, and event name.
+### Table 1 and Table 1 Metadata
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; We subset the data based on the research questions. The first table was included Program name and Unique Record ID. In this data set, we were able to show the amount of patients in each program. The amount of patients that were in multiple programs can also be showed by the table.
+
+```R
+Program_ID11 <- unique(HFS[ , c('recordID', 'program_name')])
+as.data.frame(table(Program_ID11$program_name))
+```
+
+<p> The amount of patients in each program:</p>
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Program name </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Frequency </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >Gambling</td>
+      <td colspan="6" >8 </td>
+    </tr>
+    <tr style="text-align: center;">
+      <td colspan="6">Mental health</td>
+      <td colspan="6">482</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Substance use</td>
+      <td colspan="6">88</td>
+    </tr>
+
+  </tbody>
+</table>
+<hr/>
