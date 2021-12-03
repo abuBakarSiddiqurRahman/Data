@@ -28,28 +28,28 @@ Our research questions are
     <tbody>
         <tr style="background-color: #f2f2f2; text-align: center;">
             <td colspan="4" > program_name </td>
-            <td colspan="4" >`r fa("times", fill = "red")`</td>
-            <td colspan="4" >`r fa("times", fill = "red")`</td>
+            <td colspan="4" >`x`</td>
+            <td colspan="4" >`x`</td>
         </tr>
         <tr style="text-align: center;">
             <td colspan="4" >facility</td>
-            <td colspan="4" >`r fa("times", fill = "red")`</td>
-            <td colspan="4" >`r fa("times", fill = "red")`</td>
+            <td colspan="4" >`x`</td>
+            <td colspan="4" >`x`</td>
         </tr>
         <tr style="background-color: #f2f2f2; text-align: center;">
             <td colspan="4" >job_title</td>
-            <td colspan="4" >`r fa("times", fill = "red")`</td>
-            <td colspan="4" >`r fa("times", fill = "red")`</td>
+            <td colspan="4" >`x`</td>
+            <td colspan="4" >`x`</td>
         </tr>
         <tr style="text-align: center;">
             <td colspan="4" >staff_name</td>
-            <td colspan="4" >`r fa("times", fill = "red")`</td>
-            <td colspan="4" >`r fa("times", fill = "red")`</td>
+            <td colspan="4" >`x`</td>
+            <td colspan="4" >`x`</td>
         </tr>
         <tr style="background-color: #f2f2f2; text-align: center;">
             <td colspan="4" > recordID </td>
-            <td colspan="4" >`r fa("times", fill = "red")`</td>
-            <td colspan="4" >`r fa("times", fill = "red")`</td>
+            <td colspan="4" >`x`</td>
+            <td colspan="4" >`x`</td>
         </tr>
     </tbody>
 </table>
