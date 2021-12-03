@@ -1,3 +1,5 @@
+# Data Cleaning
+
 The dataset that we were used for this project provided by Heartland Family Service (HFS). The goal was to find some relevant questions and analyze the data that can be helpful for the future decision making of the company. The dataset contains data about the services attended by the clients and few details of the clients of HFS as well. There are a total of 8745 rows of data for 51 columns.
 
 Read the data
@@ -372,3 +374,48 @@ as.data.frame(table(Program_Facility_Staff12$staff_name))
     </tr>
   </tbody>
 </table>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please note that before, during, and after the data was subset-ed, we considered what data we were not using. We found the impact was negligible with respect to the research question (What is the case load with respect to programs, job titles, and staff?).
+
+## Cleaning for Research Question 2
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The specific variables being used were program name, age filtered by the unique record id, gender identity filtered by the unique record id, and race filtered by the unique record id. The following table showed the demonstration of the information about cleaning of the variables.
+
+<table style="border: 1px solid black; width: 100%;">
+    <thead style="border: 1px solid black">
+        <tr>
+            <th colspan="4" style="background-color: #04AA6D; color: white;">Column name</th>
+            <th colspan="4" style="background-color: #04AA6D; color: white;">Missing values</th>
+            <th colspan="4"style="background-color:#04AA6D; color: white;">Unstandardised values</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="background-color: #f2f2f2; text-align: center;">
+            <td colspan="4" > program_name </td>
+            <td colspan="4" >x</td>
+            <td colspan="4" >x</td>
+        </tr>
+        <tr style="text-align: center;">
+            <td colspan="4" >gender_identity</td>
+            <td colspan="4" >x</td>
+            <td colspan="4" >✓</td>
+        </tr>
+        <tr style="background-color: #f2f2f2; text-align: center;">
+            <td colspan="4" >age</td>
+            <td colspan="4" >x</td>
+            <td colspan="4" >x</td>
+        </tr>
+        <tr style="text-align: center;">
+            <td colspan="4" >simple_race</td>
+            <td colspan="4" >x</td>
+            <td colspan="4" >✓</td>
+        </tr>
+        <tr style="background-color: #f2f2f2; text-align: center;">
+            <td colspan="4" > recordID </td>
+            <td colspan="4" >x</td>
+            <td colspan="4" >x</td>
+        </tr>
+    </tbody>
+</table>
+
+<br/>
