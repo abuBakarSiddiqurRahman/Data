@@ -417,5 +417,106 @@ as.data.frame(table(Program_Facility_Staff12$staff_name))
         </tr>
     </tbody>
 </table>
-
 <br/>
+
+# Changing row names and remove some rows
+gender_identity had some un-standardized values. For example in gender_identity there were instances of “Woman” and “Female”. Additionally there were instances of “Not Obtained” and “NA”. These was standardized by changing row names for gender identity column. “Not Collected” and “Unknown” character was replaced by NA (in total 50 rows name changed by NA in gender identity column). Now the data set contained only NA instead of “Not Collected” and “Unknown”. All "woman" replaced by "Female" in the gender identity column of the dataset.
+The simple_race column had values which did not match with the values provided in the SLA Data Columns document. There were a total of 178 records belonging to 11 unique recordIDs. So data was cleaned of such recordIDs for this research question. The recordIDs that were cleaned where - 19, 111, 135, 191, 219, 226, 227, 394,407, 421, 463.
+
+```R
+HFS$gender_identity[HFS$gender_identity=="Woman"] <- "Female"
+HFS$gender_identity[HFS$gender_identity=="Not Obtained"] <- "NA"
+HFS$gender_identity[HFS$gender_identity=="Unknown"] <- "NA"
+HFS$gender_identity[is.na(HFS$gender_identity)]<-"NA"
+
+as.data.frame(table(HFS$gender_identity))
+```
+
+<p> The gender_identity and its frequency after cleaning from the above mentioned process.
+</p>
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Gender identity </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> frequency </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="text-align: center;">
+      <td colspan="6">Client Declined to Give</td>
+      <td colspan="6">48</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Female</td>
+      <td colspan="6">4011</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Man</td>
+      <td colspan="6">4011</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">NA</td>
+      <td colspan="6">2442</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Non-Binary</td>
+      <td colspan="6">36</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Other</td>
+      <td colspan="6">24</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Two-spirit</td>
+      <td colspan="6">43</td>
+    </tr>
+  </tbody>
+</table>
+
+```R
+as.data.frame(table(HFS2$simple_race))
+```
+<p> **_The sample race and its frequency after cleaning the dataset_**
+</p>
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Sample race </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> frequency </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >Asian</td>
+      <td colspan="6" >41 </td>
+    </tr>
+    <tr style="text-align: center;">
+      <td colspan="6">Black</td>
+      <td colspan="6">835</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Caucasian</td>
+      <td colspan="6">6921</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Hawaiian Native</td>
+      <td colspan="6">10</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Native American</td>
+      <td colspan="6">143</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Other</td>
+      <td colspan="6">5</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Two or More</td>
+      <td colspan="6">265</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Unknown</td>
+      <td colspan="6">347</td>
+    </tr>
+  </tbody>
+</table>
