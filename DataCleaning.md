@@ -799,8 +799,8 @@ as.data.frame(table(HFS$general_location))
 ### Background Information on ACS Data
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The ACS County data showed the access to internet by county. The populations were broken down by race, age, education, and employed/unemployed. We used this data set because it showed the population that had access to internet. Thus this was the population that had the capability to use telehealth services. The ACS county data mainly used social determinants in order to compare to access of internet. Therefore, we must clean both data sets in order to compare them. It did not have any gender or gender identity column, so gender section did not compared. However it had race and age. The only races the ACS Data had are: white, black, and asian. It also had the ages split into two categories: 18-64 and 65+. Therefore, we modified our data to be similar. We filtered the HFS simple_race column to only show white, black, and asian.
 
-###ACS Data
 ```R
+#ACS Dataset
 ACS <- read_excel("../../ACS Cleaned.xlsx")
 head(ACS)
 ```
@@ -821,6 +821,103 @@ head(ACS)
       <td colspan="6" >0.8936725 </td>
       <td colspan="6" > 0.8205564	</td>
       <td colspan="6" > 0.6245212 </td>
+    </tr>
+  </tbody>
+</table>
+
+```R
+# The code was used to rename the rows name on for age groups for telehealth dataset
+Telehealth<- unique(HFS[,c('recordID', 'age','simple_race', 'general_location')])
+Telehealth$age[Telehealth$age %in% c("18", "19", "20", "21","22",
+                     "23", "24", "25", "26", "27",
+                     "28", "29", "30", "31", "32", "33",
+                     "34", "35", "36", "37", "38",
+                     "39", "40", "41", "42", "43", "44",
+                     "45", "46", "47", "48", "49", "50",
+                     "51", "52", "53", "54",
+                     "55", "56", "57", "58", "59", "60",
+                     "61", "62", "63", "64")] <- "18 to 64"
+Telehealth$age[Telehealth$age %in% c("65", "66", "67", "68","69",
+                     "70", "71", "72")] <- "65 or older"
+Telehealth$age[Telehealth$age!="18 to 64" & Telehealth$age!= "65 or older"] <- "Remove"
+Telehealth<-subset(Telehealth, age!="Remove")
+Telehealth$simple_race[Telehealth$simple_race==1] <- "Caucasian"
+Telehealth$simple_race[Telehealth$simple_race==8] <- "Asian"
+Telehealth$simple_race[Telehealth$simple_race==16] <- "Black"
+Telehealth<-subset(Telehealth, simple_race=="Caucasian" | simple_race=="Asian" | simple_race=="Black")
+Telehealth1 <- Telehealth[Telehealth$general_location %in% c("Telehealth"), ]
+Not<- Telehealth[Telehealth$general_location %in% c("Not Telehealth"), ]
+TeleRace<-as.data.frame(table(Telehealth1$simple_race))
+TeleAge<-as.data.frame(table(Telehealth1$age))
+total=nrow(Telehealth1)+nrow(Not)
+AsianTele<-TeleRace[1,2]/total
+BlackTele<-TeleRace[2,2]/total
+WhiteTele<-TeleRace[3,2]/total
+youngerTele<-TeleAge[1,2]/total
+olderTele<-TeleAge[2,2]/total
+NotTeleRace<-as.data.frame(table(Not$simple_race))
+NotTeleAge<-as.data.frame(table(Not$age))
+AsianTeleNot<-NotTeleRace[1,2]/total
+BlackTeleNot<-NotTeleRace[2,2]/total
+WhiteTeleNot<-NotTeleRace[3,2]/total
+youngerTeleNot<-NotTeleAge[1,2]/total
+olderTeleNot<-NotTeleAge[2,2]/total
+```
+
+Code for getting the percentage of each dataset based on race. This data was different because we were looking at the percentage of the demographics using telehealth and those who did not use telehealth.
+```R
+ACS<-as.tibble(ACS)
+Tele<-c(WhiteTele, BlackTele, AsianTele, youngerTele, olderTele)
+Not<-c(WhiteTeleNot, BlackTeleNot, AsianTeleNot, youngerTeleNot, olderTeleNot)
+ACS<-rbind(ACS,Tele,Not)
+Title <- c("ACS", "Telehealth","NotTelehealth")
+ACS<-cbind(ACS,Title)
+
+#the percentage of each dataset based on race
+ACS<-t(ACS)
+colnames(ACS)<-c("ACS", "Telehealth","NotTelehealth")
+ACS<-ACS[-c(6), ]
+head(ACS)
+```
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Race </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> ACS dataset </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Telehealth dataset</th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Not telehealth dataset</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >	white </td>
+      <td colspan="6" >	0.8620501 </td>
+      <td colspan="6" >0.4363354 </td>
+      <td colspan="6" > 0.4270186	</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >	black  </td>
+      <td colspan="6" >	0.57109470 </td>
+      <td colspan="6" > 0.07453416 </td>
+      <td colspan="6" > 0.05590062	</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >	asian </td>
+      <td colspan="6" >	0.89367250 </td>
+      <td colspan="6" > 0.00310559</td>
+      <td colspan="6" > 0.00310559	</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >	age 18-64 </td>
+      <td colspan="6" >	0.8205564 </td>
+      <td colspan="6" > 0.5046584</td>
+      <td colspan="6" > 0.4829193	</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >	age 65+ </td>
+      <td colspan="6" >	0.62452120 </td>
+      <td colspan="6" > 0.00931677</td>
+      <td colspan="6" > 0.00310559	</td>
     </tr>
   </tbody>
 </table>
