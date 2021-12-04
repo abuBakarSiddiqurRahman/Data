@@ -960,3 +960,65 @@ head(ACS)
         </tr>
     </tbody>
 </table>
+
+## Cleaning for Research Question 4
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The specific variables being used for research question 4 were job title, job title filtered by event name, facility, sc code, zip codes, state, program name, unique record id, staff name, event name.
+
+
+<table style="border: 1px solid black; width: 100%;">
+    <thead style="border: 1px solid black">
+        <tr>
+            <th colspan="4" style="background-color: #04AA6D; color: white;">Column name</th>
+            <th colspan="4" style="background-color: #04AA6D; color: white;">Missing values</th>
+            <th colspan="4"style="background-color:#04AA6D; color: white;">Unstandardised values</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="background-color: #f2f2f2; text-align: center;">
+            <td colspan="4" > program_name </td>
+            <td colspan="4" >x</td>
+            <td colspan="4" >x</td>
+        </tr>
+        <tr style="text-align: center;">
+            <td colspan="4" >facility</td>
+            <td colspan="4" >x</td>
+            <td colspan="4" >x</td>
+        </tr>
+        <tr style="background-color: #f2f2f2; text-align: center;">
+            <td colspan="4" >job_title</td>
+            <td colspan="4" >x</td>
+            <td colspan="4" >x</td>
+        </tr>
+        <tr style="text-align: center;">
+            <td colspan="4" >staff_name</td>
+            <td colspan="4" >x</td>
+            <td colspan="4" >x</td>
+        </tr>
+        <tr style="background-color: #f2f2f2; text-align: center;">
+            <td colspan="4" > recordID </td>
+            <td colspan="4" >✓</td>
+            <td colspan="4" >x</td>
+        </tr>
+        <tr style="text-align: center;">
+            <td colspan="4" >sc_code</td>
+            <td colspan="4" >x</td>
+            <td colspan="4" >x</td>
+        </tr>
+        <tr style="background-color: #f2f2f2; text-align: center;">
+            <td colspan="4" > zip </td>
+            <td colspan="4" >x</td>
+            <td colspan="4" >✓</td>
+        </tr>
+        <tr style="text-align: center;">
+            <td colspan="4" >state</td>
+            <td colspan="4" >x</td>
+            <td colspan="4" >x</td>
+        </tr>
+        <tr style="background-color: #f2f2f2; text-align: center;">
+            <td colspan="4" > event_name </td>
+            <td colspan="4" >x</td>
+            <td colspan="4" >x</td>
+        </tr>
+    </tbody>
+</table>
