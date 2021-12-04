@@ -1062,12 +1062,11 @@ as.data.frame(table(NEIA$state))
 
 <p> we compared the variables in the following ways for research question 4: </p>
 <table style="border: 1px solid black; width: 100%;">
- <thead style="border: 1px solid black">
-  <tr>
-    <th colspan="6" style="background-color: #04AA6D; color: white;"> Independent </th>
-
-    <th colspan="6" style="background-color: #04AA6D; color: white;"> Dependent </th>
-  </tr>
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Independent </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Dependent </th>
+    </tr>
   </thead>
   <tbody>
     <tr style="background-color: #f2f2f2; text-align: center;">
