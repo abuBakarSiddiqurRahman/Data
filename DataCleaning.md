@@ -1,4 +1,4 @@
-# Data Cleaning
+# Data Cleaning and analyze the data after cleaning
 
 The dataset that we were used for this project provided by Heartland Family Service (HFS). The goal was to find some relevant questions and analyze the data that can be helpful for the future decision making of the company. The dataset contains data about the services attended by the clients and few details of the clients of HFS as well. There are a total of 8745 rows of data for 51 columns.
 
@@ -660,6 +660,167 @@ as.data.frame(table(Program_Age_uID22$program_name))
     <tr style="background-color: #f2f2f2; text-align: center;">
       <td colspan="6">Substance use</td>
       <td colspan="6">108</td>
+    </tr>
+  </tbody>
+</table>
+
+### Table 6 and Table 6 Metadata
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The third table included Program name and the Race that was filtered by the Unique Record ID. The race data was cleanead in previous section. Now, the dataset contained 8567 cleaned entries, 567 of them are unique.  The races of the patients involved in programs or a single program showed in this section.
+
+```R
+# creating table only with recordID, simple_race and program_name
+Program_Race_uID23 <- unique(HFS2[, c('recordID', 'simple_race', 'program_name')])
+
+# sample_race distributions for each program that was filtered by unique recordID
+as.data.frame(table(Program_Race_uID23$simple_race))
+```
+<p> The sample race and its frequency after cleaning the dataset
+</p>
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Sample race </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> frequency </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >Asian</td>
+      <td colspan="6" >41 </td>
+    </tr>
+    <tr style="text-align: center;">
+      <td colspan="6">Black</td>
+      <td colspan="6">835</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Caucasian</td>
+      <td colspan="6">6921</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Hawaiian Native</td>
+      <td colspan="6">10</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Native American</td>
+      <td colspan="6">143</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Other</td>
+      <td colspan="6">5</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Two or More</td>
+      <td colspan="6">265</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Unknown</td>
+      <td colspan="6">347</td>
+    </tr>
+  </tbody>
+</table>
+
+```R
+# observe the sample_race distributions to find out how much of the distributions were related more than a program
+as.data.frame(table(Program_Race_uID23$program_name))
+```
+<p> Age distributions in each program:</p>
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Program name </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Frequency </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >Gambling</td>
+      <td colspan="6" >8 </td>
+    </tr>
+    <tr style="text-align: center;">
+      <td colspan="6">Mental health</td>
+      <td colspan="6">471</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Substance use</td>
+      <td colspan="6">88</td>
+    </tr>
+  </tbody>
+</table>
+
+## Cleaning for Research Question 3
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This research question was meant to be a secondary question to research question 2. The specific variables being used were general location, age filtered by the unique record id, gender identity filtered by the unique record id, and race filtered by the unique record id. We carried over the cleaning that was done in Question 2's cleaning. General location was cleaned by removing blanks and "Use when no other code fits" values. Then "Telehealth by video" and "Telehealth by call" were grouped together as just "Telehealth".
+
+
+<table style="border: 1px solid black; width: 100%;">
+    <thead style="border: 1px solid black">
+        <tr>
+            <th colspan="4" style="background-color: #04AA6D; color: white;">Column name</th>
+            <th colspan="4" style="background-color: #04AA6D; color: white;">Missing values</th>
+            <th colspan="4"style="background-color:#04AA6D; color: white;">Unstandardised values</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="background-color: #f2f2f2; text-align: center;">
+            <td colspan="4" > general_location </td>
+            <td colspan="4" >✓</td>
+            <td colspan="4" >✓</td>
+        </tr>
+    </tbody>
+</table>
+
+```R
+# cleaning for general_location
+HFS$general_location[HFS$general_location=="Telehealth - Phone" | HFS$general_location=="Telehealth - Video"] <- "Telehealth"
+HFS$general_location[HFS$general_location!="Telehealth"] <- "Not Telehealth"
+as.data.frame(table(HFS$general_location))
+```
+
+<p> Cleaning general_location based on telehealth and not telehealth classification</p>
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> general_location </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Frequency </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >not telehealth</td>
+      <td colspan="6" >4136 </td>
+    </tr>
+    <tr style="text-align: center;">
+      <td colspan="6">telehealth</td>
+      <td colspan="6">4609</td>
+    </tr>
+  </tbody>
+</table>
+
+### Background Information on ACS Data
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The ACS County data showed the access to internet by county. The populations were broken down by race, age, education, and employed/unemployed. We used this data set because it showed the population that had access to internet. Thus this was the population that had the capability to use telehealth services. The ACS county data mainly used social determinants in order to compare to access of internet. Therefore, we must clean both data sets in order to compare them. It did not have any gender or gender identity column, so gender section did not compared. However it had race and age. The only races the ACS Data had are: white, black, and asian. It also had the ages split into two categories: 18-64 and 65+. Therefore, we modified our data to be similar. We filtered the HFS simple_race column to only show white, black, and asian.
+
+###ACS Data
+```R
+ACS <- read_excel("../../ACS Cleaned.xlsx")
+head(ACS)
+```
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> white </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> black </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> asian </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> age 18-64 </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> age 65+ </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >0.8620501	 </td>
+      <td colspan="6" >0.5710947	 </td>
+      <td colspan="6" >0.8936725 </td>
+      <td colspan="6" > 0.8205564	</td>
+      <td colspan="6" > 0.6245212 </td>
     </tr>
   </tbody>
 </table>
