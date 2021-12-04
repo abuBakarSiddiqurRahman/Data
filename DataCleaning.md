@@ -520,3 +520,86 @@ as.data.frame(table(HFS2$simple_race))
     </tr>
   </tbody>
 </table>
+
+<p> For reserach questions 2 (RQ 2), the following table was considered for analysis
+</p>
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+        <tr>
+            <th colspan="6" style="background-color: #04AA6D; color: white;">Independent (for RQ 2)</th>
+            <th colspan="6" style="background-color: #04AA6D; color: white;">Dependent (for RQ 2)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="background-color: #f2f2f2; text-align: center;">
+            <td colspan="6" > program_name </td>
+            <td colspan="6" >Gender Identity filtered by the Unique Record id (table 4)</td>
+        </tr>
+        <tr style="text-align: center;">
+            <td colspan="6" >program_name</td>
+            <td colspan="6" >Age filtered by the Unique Record id (table 5)</td>
+        </tr>
+        <tr style="background-color: #f2f2f2; text-align: center;">
+            <td colspan="6" >program_name</td>
+            <td colspan="6" >Race filtered by the Unique Record id (table 6)</td>
+        </tr>
+    </tbody>
+</table>
+
+### Table 4 and Table 4 Metadata
+```R
+# creating table only with recordID, gender_identity and program_name
+Program_Gender_uID21 <- unique(HFS[ , c('recordID', 'gender_identity', 'program_name')])
+
+# gender_identity filetered by unique recordID
+as.data.frame(table(Program_Gender_uID21$gender_identity))
+```
+<p> The gender_identity and its frequency after filtering by unique recordID
+</p>
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Gender identity </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> frequency </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="text-align: center;">
+      <td colspan="6">Client Declined to Give</td>
+      <td colspan="6">4</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Female</td>
+      <td colspan="6">255</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Man</td>
+      <td colspan="6">165</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">NA</td>
+      <td colspan="6">149</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Non-Binary</td>
+      <td colspan="6">2</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Other</td>
+      <td colspan="6">1</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Two-spirit</td>
+      <td colspan="6">2</td>
+    </tr>
+  </tbody>
+</table>
+
+### Table 5 and Table 5 Metadata
+```R
+# creating table only with recordID, age and program
+Program_Gender_uID21 <- unique(HFS[ , c('recordID', 'gender_identity', 'program_name')])
+
+# age distributions for each program that was filtered by unique recordID
+as.data.frame(table(Program_Gender_uID21$gender_identity))
+```
