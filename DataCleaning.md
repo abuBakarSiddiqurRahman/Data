@@ -921,3 +921,42 @@ head(ACS)
     </tr>
   </tbody>
 </table>
+
+<p> we compared the following tables based on the immediate percentage table where we showed the comparison between races for ACS, telehealth and non NotTelehealth dataset
+
+<table style="border: 1px solid black; width: 100%;">
+    <thead style="border: 1px solid black">
+        <tr>
+            <th colspan="4" style="background-color: #04AA6D; color: white;">Percents in HFS Data with Telehealth </th>
+            <th colspan="4" style="background-color: #04AA6D; color: white;"> Percents in HFS Data with Non-telehealth </th>
+            <th colspan="4" style="background-color: #04AA6D; color: white;"> Percents in ACS County Data with Access to Internet</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="background-color: #f2f2f2; text-align: center;">
+            <td colspan="4" >Percent of White Population filtered by unique record id and telehealth</td>
+            <td colspan="4" >Percent of White Population filtered by unique record id and non-telehealth</td>
+            <td colspan="4" >Percent of White Population with access to internet</td>
+        </tr>
+        <tr style="text-align: center;">
+            <td colspan="4" >Percent of Black Population filtered by unique record id and telehealth</td>
+            <td colspan="4" >Percent of Black Population filtered by unique record id and non-telehealth</td>
+            <td colspan="4" >Percent of Black Population with access to internet</td>
+        </tr>
+        <tr style="background-color: #f2f2f2; text-align: center;">
+            <td colspan="4" >Percent of Asian Population filtered by unique record id and telehealth</td>
+            <td colspan="4" >Percent of Asian Population filtered by unique record id and non-telehealth</td>
+            <td colspan="4" >Percent of Asian Population with access to internet</td>
+        </tr>
+        <tr style="text-align: center;">
+            <td colspan="4" >Percent of Ages 18 - 64 Population filtered by unique record id and telehealth</td>
+            <td colspan="4" >Percent of Ages 18 - 64 Population filtered by unique record id and non-telehealth</td>
+            <td colspan="4" >Percent of Ages 18 - 64 Population with access to internet</td>
+        </tr>
+        <tr style="background-color: #f2f2f2; text-align: center;">
+            <td colspan="4" >Percent of Ages 65 or Older Population filtered by unique record id and telehealth</td>
+            <td colspan="4" >Percent of Ages 65 or Older Population filtered by unique record id and non-telehealth</td>
+            <td colspan="4" >Percent of Ages 65 or Older Population with access to internet</td>
+        </tr>
+    </tbody>
+</table>
