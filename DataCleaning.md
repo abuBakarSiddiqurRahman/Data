@@ -1022,3 +1022,5 @@ head(ACS)
         </tr>
     </tbody>
 </table>
+
+With respect to, sc code we were unsure what the blanks means for the sc code column. In order to not manipulate the data in an unplanned fashion, we decided to make all blanks read “NA”. Finally, there were also some event names that we were categorized differently those contained integer values at the beginning of teir name.
