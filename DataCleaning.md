@@ -1111,3 +1111,84 @@ as.data.frame(table(NEIA$state))
     </tr>
   </tbody>
 </table>
+
+### Table 8
+```R
+# The datset included the variables Job Title, SC code, Zip code, and State including only NE and IA. With this we were able to see the relationship between job title and sc_codes, zip, and state.
+Job_SC_Zip_State41 <- subset(NEIA[, c('job_title','sc_code', 'zip', 'state')])
+```
+### Table 9 and Table 9 Metadata
+```R
+# The datset included Job Title filtered by event name, SC code, Zip code, and State including only NE and IA. This enabled us to look at job title filtered by event name in relation to sc_code, zip, and state.
+filterJob_SC_Zip_State42 <-unique(NEIA[ , c('job_title', 'event_name', 'sc_code','state','zip')])
+```
+
+```R
+# job_title filtered by event name
+head(as.data.frame(table(filterJob_SC_Zip_State42$job_title)))
+# event_name filtered by job_title
+head(as.data.frame(table(filterJob_SC_Zip_State42$event_name)))
+# sc_code filtered by event name
+head(as.data.frame(table(filterJob_SC_Zip_State42$sc_code)))
+# state filtered by event name
+as.data.frame(table(filterJob_SC_Zip_State42$state))
+# zip filtered by event name
+as.data.frame(table(filterJob_SC_Zip_State42$zip))
+```
+
+### Table 10 and Table 10 Metadata
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The third table for this research question included Facility, Program name, Staff Name, Event Name. This enabled us to see the relationship between facility and program_name, staff_name, and event_name.
+
+```R
+Facility_Program_Staff_Event43J<- subset(NEIA[, c('facility','program_name', 'staff_name', 'event_name')])
+as.data.frame(table(Facility_Program_Staff_Event43J$facility))
+as.data.frame(table(Facility_Program_Staff_Event43J$program_name)
+head(as.data.frame(table(Facility_Program_Staff_Event43J$staff_name)))
+head(as.data.frame(table(Facility_Program_Staff_Event43J$event_name)))
+```
+
+### Table 11 and Table 11 Metadata
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Finally the last table helped us to see which facilities were utilized more.
+
+```R
+Facility_uID44<-unique(NEIA[ , c('facility', 'recordID')])
+as.data.frame(table(Facility_uID44$facility))
+```
+<p> Facility distributions basd on each recordID (showed here first 5 facilities out of 25 facilities)</p>
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Facility </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Frequency </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >Abraham Lincoln High School</td>
+      <td colspan="6" >3</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >Bellevue Reporting Center	</td>
+      <td colspan="6" >7</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >Center Mall Office	</td>
+      <td colspan="6" >26</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >Heartland Family Service - Central	</td>
+      <td colspan="6" >103</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >Heartland Family Service - Child and Family Center	</td>
+      <td colspan="6" >63</td>
+    </tr>
+  </tbody>
+</table>
+
+## Contributors for the project
+##### Abu Bakar Siddiqur Rahman, Lisa Kiemde, Shravya Chandiri
+##### Do not hesitate to contact us if you have any questions
+##### (abubakarsiddiqurra@unomaha.edu, lgmorton@unomaha.edu, schandiri@unomaha.edu)
