@@ -603,3 +603,63 @@ Program_Gender_uID21 <- unique(HFS[ , c('recordID', 'gender_identity', 'program_
 # age distributions for each program that was filtered by unique recordID
 as.data.frame(table(Program_Gender_uID21$gender_identity))
 ```
+<p> The amount of patients that were admitted on multiple program
+(in this table, we showed a demo by only providing first 5 recordID)</p>
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> recordID </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> how many programs attend </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >1</td>
+      <td colspan="6" >2 </td>
+    </tr>
+    <tr style="text-align: center;">
+      <td colspan="6">2</td>
+      <td colspan="6">3</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">3</td>
+      <td colspan="6">2</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">4</td>
+      <td colspan="6">3</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">5</td>
+      <td colspan="6">3</td>
+    </tr>
+  </tbody>
+</table>
+
+```R
+# observe the age distributions to find out how much of the distributions were related more than a program
+as.data.frame(table(Program_Age_uID22$program_name))
+```
+<p> Age distributions in each program:</p>
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Program name </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Frequency </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >Gambling</td>
+      <td colspan="6" >8 </td>
+    </tr>
+    <tr style="text-align: center;">
+      <td colspan="6">Mental health</td>
+      <td colspan="6">606</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Substance use</td>
+      <td colspan="6">108</td>
+    </tr>
+  </tbody>
+</table>
