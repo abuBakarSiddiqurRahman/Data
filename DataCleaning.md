@@ -1113,13 +1113,13 @@ as.data.frame(table(NEIA$state))
 </table>
 
 ### Table 8
+The datset included the variables Job Title, SC code, Zip code, and State including only NE and IA. With this we were able to see the relationship between job title and sc_codes, zip, and state.
 ```R
-# The datset included the variables Job Title, SC code, Zip #code, and State including only NE and IA. With this we were #able to see the relationship between job title and sc_codes, #zip, and state.
 Job_SC_Zip_State41 <- subset(NEIA[, c('job_title','sc_code', 'zip', 'state')])
 ```
 ### Table 9 and Table 9 Metadata
+ The datset included Job Title filtered by event name, SC code, Zip code, and State including only NE and IA. This enabled us to look at job title filtered by event name in relation to sc_code, zip, and state.
 ```R
-# The datset included Job Title filtered by event name, SC code, #Zip code, and State including only NE and IA. This enabled us #to look at job title filtered by event name in relation to #sc_code, zip, and state.
 filterJob_SC_Zip_State42 <-unique(NEIA[ , c('job_title', 'event_name', 'sc_code','state','zip')])
 ```
 
