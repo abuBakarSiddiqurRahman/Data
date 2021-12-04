@@ -1060,7 +1060,7 @@ as.data.frame(table(NEIA$state))
 </table>
 
 
-<p> we compared the variables in the following ways for research question 4:
+<p> we compared the variables in the following ways for research question 4: </p>
 <table style="border: 1px solid black; width: 100%;">
  <thead style="border: 1px solid black">
   <tr>
