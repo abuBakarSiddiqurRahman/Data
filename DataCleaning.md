@@ -1024,3 +1024,91 @@ head(ACS)
 </table>
 
 With respect to, sc code we were unsure what the blanks means for the sc code column. In order to not manipulate the data in an unplanned fashion, we decided to make all blanks read “NA”. Finally, there were also some event names that we were categorized differently those contained integer values at the beginning of teir name.
+
+```R
+NEIA$event_name[NEIA$event_name=="1. Record Status/Status Update ISMART"] <- "Record Status/Status Update ISMART"
+NEIA$event_name[NEIA$event_name=="2. Placement Screening ISMART"] <- "Placement Screening ISMART"
+NEIA$event_name[NEIA$event_name=="3. Admission ISMART"] <- "Admission ISMART"
+NEIA$event_name[NEIA$event_name=="4. Discharge ISMART"] <- "Discharge ISMART"
+NEIA$sc_code[is.na(NEIA$sc_code)]<-"NA"
+```
+
+AS column of HFS dataset: Nebraska and Iowa dataset -- Completed by 3614 rows for NE (one data set), 5077 rows for IA (another dataset). Here, two new data sets created.
+```R
+NEIA <- HFS[HFS$state %in% c("NE","IA"), ]
+as.data.frame(table(NEIA$state))
+```
+
+<p> Age distributions in each program:</p>
+<table style="border: 1px solid black; width: 100%;">
+  <thead style="border: 1px solid black">
+    <tr>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> State </th>
+      <th colspan="6" style="background-color: #04AA6D; color: white;"> Frequency </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6" >Iowa (IA)</td>
+      <td colspan="6" >5077</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td colspan="6">Nebraska (NE)</td>
+      <td colspan="6">3614</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<p> we compared the variables in the following ways for research question 4:
+<table style="border: 1px solid black; width: 100%;">
+ <thead style="border: 1px solid black">
+  <tr>
+    <th colspan="6" style="background-color: #04AA6D; color: white;"> Independent </th>
+
+    <th colspan="6" style="background-color: #04AA6D; color: white;"> Dependent </th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Job Title</td>
+      <td colspan="6">Sc Code</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td colspan="6">Job Title</td>
+      <td colspan="6">Zip code</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Job Title</td>
+      <td colspan="6">State</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td colspan="6">Job Title filtered by event name</td>
+      <td colspan="6">Sc Code</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Job Title filtered by event name</td>
+      <td colspan="6">Zip code</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td colspan="6">Job Title filtered by event name</td>
+      <td colspan="6">State</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Facility</td>
+      <td colspan="6">Program name</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td colspan="6">Facility</td>
+      <td colspan="6">Unique Record id</td>
+    </tr>
+    <tr style="background-color: #f2f2f2; text-align: center;">
+      <td colspan="6">Facility</td>
+      <td colspan="6">Staff name</td>
+    </tr>
+    <tr style="text-align: center;">
+      <td colspan="6">Facility</td>
+      <td colspan="6">Event name</td>
+    </tr>
+  </tbody>
+</table>
