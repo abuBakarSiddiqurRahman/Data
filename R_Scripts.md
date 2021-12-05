@@ -79,8 +79,15 @@ ggplot(Gendler, aes(x=reorder(job_title,+Freq), y=Freq, fill=facility))+geom_col
 
 ![the number of therapists, specialists, and other people working for each program](https://github.com/121107/Data/blob/master/Images/13.PNG)
 
-<p float="left">
-  <img src="/img11.png" width="10" />
-  <img src="/img12.png" width="10" />
-  <img src="/img13.png" width="10" />
-</p>
+<table>
+  <tr>
+    <td>First Screen Page</td>
+     <td>Holiday Mention</td>
+     <td>Present day in purple and selected day in pink</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/11.PNG" width=270 height=480></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/12.PNG" width=270 height=480></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/13.PNG" width=270 height=480></td>
+  </tr>
+ </table>
