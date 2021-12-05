@@ -128,7 +128,7 @@ ggplot(Gendler, aes(x=reorder(job_title,+Freq), y=Freq, fill=facility))+geom_col
     <td><img src="https://github.com/121107/Data/blob/master/Images/34.PNG" width=700 height=300></td>
     <td><img src="https://github.com/121107/Data/blob/master/Images/35.PNG" width=700 height=300></td>
   </tr>
-  <tr>
+  <tr> 
     <td><img src="https://github.com/121107/Data/blob/master/Images/36.PNG" width=700 height=300></td>
     <td><img src="https://github.com/121107/Data/blob/master/Images/37.PNG" width=700 height=300></td>
   </tr>
