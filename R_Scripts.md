@@ -34,6 +34,7 @@ names(df1)[2]<- "number_unique_recordID"
 **_Summary:_** In this graph we can see how many people are enrolled in each program. This is done by finding unique record IDs for program names. Therefore, this might include people who are in more than 1 program. As we can see Mental Health is more utilized currently. There are very few people who are utilizing the Gambling programs. This may be due to the fact that the Gambling program is only offered in certain places, is less funded, or is a new program.
 
 **_how many people are enrolled in each program_**
+
 ![how many people are enrolled in each program](https://github.com/121107/Data/blob/master/Images/11.PNG)
 
  **_Analysis 2: average number of visits for each program_**
@@ -58,6 +59,7 @@ names(df1)[2]<- "number_unique_recordID"
 **_Summary:_** This graph shows the average number of visits for each program. To do this we divided the frequency of utilization by the number of clients for each program. As we can see the people who attend substance Use programs tend to come back more often than those who do not. This may be due to insurance allotments for visits or it could just be the atmosphere for the substance Use programs retain more people because the way they function.
 
  **_average number of visits for each program_**
+
 ![average number of visits for each program](https://github.com/121107/Data/blob/master/Images/12.PNG)
 
 
@@ -74,4 +76,11 @@ ggplot(Gendler, aes(x=reorder(job_title,+Freq), y=Freq, fill=facility))+geom_col
 **_Summary:_** This graph shows the number of therapists, specialists, and other people working for each program at the Gendler site. This site is one of the top visited facility. The size of this was expected due to the amount of demand for each program.
 
 **_the number of therapists, specialists, and other people working for each program_**
+
 ![the number of therapists, specialists, and other people working for each program](https://github.com/121107/Data/blob/master/Images/13.PNG)
+
+<p float="left">
+  <img src="/img11.png" width="100" />
+  <img src="/img12.png" width="100" />
+  <img src="/img13.png" width="100" />
+</p>
