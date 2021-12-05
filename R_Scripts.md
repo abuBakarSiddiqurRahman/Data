@@ -81,54 +81,98 @@ ggplot(Gendler, aes(x=reorder(job_title,+Freq), y=Freq, fill=facility))+geom_col
 
 <table>
   <tr>
-    <td>First Screen Page</td>
-     <td>Holiday Mention</td>
+    <td> Abraam Linc. high school is covered by only one of the main cost centers.</td>
+     <td>Bellevue Reporting Center there are mostly therapists but there is also 1 other employee.</td>
   </tr>
   <tr>
     <td><img src="https://github.com/121107/Data/blob/master/Images/14.PNG" width=700 height=300></td>
     <td><img src="https://github.com/121107/Data/blob/master/Images/15.PNG" width=700 height=300></td>
   </tr>
   <tr>
+    <td> This is a location where more than one program is offered. As we can see a majority of the people in direct contact with clients are therapists.</td>
+     <td>HFS’s Central location mental health and substance Use are both offered. The mental health program has more employees, as expected</td>
+  </tr>
+  <tr>
     <td><img src="https://github.com/121107/Data/blob/master/Images/16.PNG" width=700 height=300></td>
     <td><img src="https://github.com/121107/Data/blob/master/Images/17.PNG" width=700 height=300></td>
+  </tr>
+  <tr>
+    <td> HFS Child and Family facility (HFSCFF) they have a mental health program with more other staff interacting with clients. This may be due to the clients that they serve.</td>
+     <td>the previous graph (HFSCFF) this has more other employees than normal. Therefore, the other workers might be interacting more with the clients due to the type of clients</td>
   </tr>
   <tr>
     <td><img src="https://github.com/121107/Data/blob/master/Images/18.PNG" width=700 height=300></td>
     <td><img src="https://github.com/121107/Data/blob/master/Images/19.PNG" width=700 height=300></td>
   </tr>
   <tr>
+    <td> they offer two different programs, which have a lot of attendance as seen in previous graphs, there are not a lot of employees at this facility.</td>
+     <td>facility is an HFS called Heartland Homes. It is a transitional housing for those people who need services but are also homeless.</td>
+  </tr>
+  <tr>
     <td><img src="https://github.com/121107/Data/blob/master/Images/20.PNG" width=700 height=300></td>
     <td><img src="https://github.com/121107/Data/blob/master/Images/21.PNG" width=700 height=300></td>
+  </tr>
+  <tr>
+    <td> graph shows the employees at HFS-Lakin. There are only a few employees here.</td>
+     <td>graph shows the employees that work at HFS - Logan. Though it does offer two programs, Mental Health and Substance Use, there are very few Therapists doing substance use sessions here.</td>
   </tr>
   <tr>
     <td><img src="https://github.com/121107/Data/blob/master/Images/22.PNG" width=700 height=300></td>
     <td><img src="https://github.com/121107/Data/blob/master/Images/23.PNG" width=700 height=300></td>
   </tr>
   <tr>
+    <td> graph shows the employees at HFS - Sarpy. Although this is one of the top used locations, it doesn’t have as many Therapists as Gendler does.</td>
+     <td>graph shows that there is 1 therapist at the Kanesville Alternative Learning Center.</td>
+  </tr>
+  <tr>
     <td><img src="https://github.com/121107/Data/blob/master/Images/24.PNG" width=700 height=300></td>
     <td><img src="https://github.com/121107/Data/blob/master/Images/25.PNG" width=700 height=300></td>
+  </tr>
+  <tr>
+    <td> Junior High is a school that HFS offers services at. Once again we see all schools only are offered Mental Health services and mainly have Therapists.</td>
+     <td>We noticed that the schools in Lewis Central were not funded under any sc_code or were covered by the sc_code 1311-54. However, the mental health program is obviously very utilized. </td>
   </tr>
   <tr>
     <td><img src="https://github.com/121107/Data/blob/master/Images/26.PNG" width=700 height=300></td>
     <td><img src="https://github.com/121107/Data/blob/master/Images/27.PNG" width=700 height=300></td>
   </tr>
   <tr>
+    <td> Terapist has significant impact.</td>
+     <td>Terapist has significant impact. </td>
+  </tr>
+  <tr>
     <td><img src="https://github.com/121107/Data/blob/master/Images/28.PNG" width=700 height=300></td>
     <td><img src="https://github.com/121107/Data/blob/master/Images/29.PNG" width=700 height=300></td>
+  </tr>
+  <tr>
+    <td> Terapist has significant impact.</td>
+     <td>Micah house is one of the most utilized facilities. The fact that it only has therapists working with clients makes it unique. </td>
   </tr>
   <tr>
     <td><img src="https://github.com/121107/Data/blob/master/Images/30.PNG" width=700 height=300></td>
     <td><img src="https://github.com/121107/Data/blob/master/Images/31.PNG" width=700 height=300></td>
   </tr>
   <tr>
+    <td> Omaha Intergenerational Campus is not in the top 5 most utilized facilities. However, the amount of employees is higher than most of the top 5 utilized facilities.</td>
+     <td>the graph shows the same trends of having higher amounts of therapists in Mental Health and less in Substance Use. This is specifically looking at the Omaha Blondo Reporting Center. </td>
+  </tr>
+  <tr>
     <td><img src="https://github.com/121107/Data/blob/master/Images/32.PNG" width=700 height=300></td>
     <td><img src="https://github.com/121107/Data/blob/master/Images/33.PNG" width=700 height=300></td>
+  </tr>
+  <tr>
+    <td> a graph of Omaha (Spring) Reporting Center. It has only therapists working with patients.</td>
+     <td>the sanctuary house. It has only other employees working there. For this specific facility, it seems reasonable to have a small regular number of staff at these facilities.</td>
   </tr>
   <tr>
     <td><img src="https://github.com/121107/Data/blob/master/Images/34.PNG" width=700 height=300></td>
     <td><img src="https://github.com/121107/Data/blob/master/Images/35.PNG" width=700 height=300></td>
   </tr>
-  <tr> 
+  <tr>
+    <td> again is a school where only mental health programs are offered and only therapists are available. It is a school in the Council Bluffs District.</td>
+     <td>school has a high number number of therapists compared with other schools from the Council Bluffs School District.</td>
+  </tr>
+  <tr>
     <td><img src="https://github.com/121107/Data/blob/master/Images/36.PNG" width=700 height=300></td>
     <td><img src="https://github.com/121107/Data/blob/master/Images/37.PNG" width=700 height=300></td>
   </tr>
