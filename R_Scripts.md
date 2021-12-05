@@ -35,7 +35,9 @@ names(df1)[2]<- "number_unique_recordID"
 
 **_how many people are enrolled in each program_**
 
-![how many people are enrolled in each program](https://github.com/121107/Data/blob/master/Images/11.PNG)
+<p  align="middle">
+  <img src="https://github.com/121107/Data/blob/master/Images/13.PNG" width="700", height="300" />
+</p>
 
  **_Analysis 2: average number of visits for each program_**
  ```{r}
@@ -78,6 +80,9 @@ ggplot(Gendler, aes(x=reorder(job_title,+Freq), y=Freq, fill=facility))+geom_col
 **_the number of therapists, specialists, and other people working for each program_**
 
 ![the number of therapists, specialists, and other people working for each program](https://github.com/121107/Data/blob/master/Images/13.PNG)
+
+# Employment by programs offered by different schools
+In this analysis, we showed how the employment distributed for different programs (Mental Health, Substance Use and Gambling) in different facilities (specifically schools).
 
 <table>
   <tr>
