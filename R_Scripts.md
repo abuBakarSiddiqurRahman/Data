@@ -456,7 +456,7 @@ ggplot(df131, aes(x=Var1,y=Freq, color=Var2))+geom_point()+ggtitle("Frequency of
 
 **_the age diversity in each program: This graphs show a peak for those under 20 in Mental Health. There is a slow in crease starting around 10 years old for the substance use program. Similarly we see the second bump in mental health corresponding to the peak in substance use._**
 <p  align="middle">
-  <img src="https://github.com/121107/Data/blob/master/Images/54.PNG" width="700", height="500" />
+  <img src="https://github.com/121107/Data/blob/master/Images/54.PNG" width="700", height="300" />
 </p>
 
 ```{r}
@@ -505,7 +505,7 @@ ggplot(df14, aes(x=reorder(Var1,+Freq), y=Freq)) +
 
 **_the initial view of the race of the clients. A majority are caucasian_**
 <p  align="middle">
-  <img src="https://github.com/121107/Data/blob/master/Images/55.PNG" width="700", height="500" />
+  <img src="https://github.com/121107/Data/blob/master/Images/55.PNG" width="700", height="300" />
 </p>
 
 ```{r}
@@ -547,7 +547,7 @@ ggplot(HFS3race, aes(x=Var1,fill=Var2))+geom_bar(aes(y=Freq), stat="identity",po
 
 **_This is the second graph of the race with non-white people being grouped together_**
 <p  align="middle">
-  <img src="https://github.com/121107/Data/blob/master/Images/56.PNG" width="700", height="500" />
+  <img src="https://github.com/121107/Data/blob/master/Images/56.PNG" width="700", height="300" />
 </p>
 
 # R Scripts for Research Question 3
@@ -580,7 +580,7 @@ ggplot(df16, aes(x=Var1, y=Freq)) +
 
 **_the frequency of telehealth and non telehealth_**
 <p  align="middle">
-  <img src="https://github.com/121107/Data/blob/master/Images/57.PNG" width="700", height="500" />
+  <img src="https://github.com/121107/Data/blob/master/Images/57.PNG" width="700", height="300" />
 </p>
 
 Our objective was to try to understand if access to internet was a deterrent to those who chose to receive care via telehealth. We predicted with the ACS data that people who are black and older would have participated in telehealth less. However our data shows that half of the patients used telehealth and the other half did not. The demographics did not seem to be a factor. We should look into other aspects such as facilities or events.
@@ -642,7 +642,7 @@ ggplot(df19, aes(x=reorder(Var1, Freq), y=(Freq)/total)) +
 
 **_the percent of use that half of the cost centers that are being utilized much less utilized. In future analysis the cost centers should be looked into to find where the funding is coming from and how to build up funding in certain places_**
 <p  align="middle">
-  <img src="https://github.com/121107/Data/blob/master/Images/58.PNG" width="700", height="500" />
+  <img src="https://github.com/121107/Data/blob/master/Images/58.PNG" width="700", height="300" />
 </p>
 
 ```{r}
@@ -653,7 +653,7 @@ ggplot(table2, aes(x=reorder(Var2,+Freq), y=Freq))+geom_bar(stat="identity", fil
 
 **_the cost centers compared by the job titles. The cost center 1314-64 is not used by any of these. We can conclude that job titles are not necessarily funded by specific cost centers. Upon further analysis we found 1314-64 is mainly used for Homeless Housing and Sanctuary Housing. Future analysis should focus on other aspects for example which facilities or other aspects that funding might focus on._**
 <p  align="middle">
-  <img src="https://github.com/121107/Data/blob/master/Images/59.PNG" width="700", height="500" />
+  <img src="https://github.com/121107/Data/blob/master/Images/59.PNG" width="700", height="300" />
 </p>
 
 ```{r}
@@ -667,7 +667,7 @@ ggplot(zip42, aes(x=reorder(Var1,+Freq), y=Freq, fill=Var2))+geom_bar(stat="iden
 
 **_the frequency of clients by zip code. We can see that just as before there are many from 680, 681, and 0 zip codes. Whereas there are fewer from others_**
 <p  align="middle">
-  <img src="https://github.com/121107/Data/blob/master/Images/60.PNG" width="700", height="500" />
+  <img src="https://github.com/121107/Data/blob/master/Images/60.PNG" width="700", height="300" />
 </p>
 
 ```{r}
@@ -865,4 +865,4 @@ Among all of these, we did ANOVA analysis. However, the results was not satisfac
 ##### (abubakarsiddiqurra@unomaha.edu, lgmorton@unomaha.edu, schandiri@unomaha.edu)
 
 ## Acknowledgement
-# We group members 5 shows our highly gratitute to Dr. Andrea Grover to teach us all steps in data analysis (make decisions from data inclusing R code). We also shows our hughly gratitute to Heartland Family Service (HFS) for providing the dataset for education purposes. 
+# We group members 5 shows our highly gratitute to Dr. Andrea Grover to teach us all steps in data analysis (make decisions from data inclusing R code). We also shows our hughly gratitute to Heartland Family Service (HFS) for providing the dataset for education purposes.
