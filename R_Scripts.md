@@ -854,12 +854,15 @@ ggplot(aes(x = X, y = Y), data = tsne_df3) +
 
 **_Clustering general_location, program_name and sc_code_**
 <p  align="middle">
-  <img src="https://github.com/121107/Data/blob/master/Images/67.PNG" width="700", height="500" />
+  <img src="https://github.com/121107/Data/blob/master/Images/67.PNG" width="500", height="300" />
 </p>
 
 Among all of these, we did ANOVA analysis. However, the results was not satisfactory. Hence, we eliminate the analysis in here. In addition, we did more analysis more than the visualization analysis presented above. However, we choose the most significant results among all visualization analysis.
 
-## Contributors for the project
+## Contributors for the project (name alphabetically ordered, everyone contributed equally)
 ##### Abu Bakar Siddiqur Rahman, Lisa Kiemde, Shravya Chandiri
 ##### Do not hesitate to contact us if you have any questions
 ##### (abubakarsiddiqurra@unomaha.edu, lgmorton@unomaha.edu, schandiri@unomaha.edu)
+
+## Acknowledgement
+# We group members 5 shows our highly gratitute to Dr. Andrea Grover to teach us all steps in data analysis (make decisions from data inclusing R code). We also shows our hughly gratitute to Heartland Family Service (HFS) for providing the dataset for education purposes. 
