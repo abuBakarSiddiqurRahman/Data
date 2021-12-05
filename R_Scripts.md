@@ -277,6 +277,9 @@ ggplot(OtherM, aes(x=reorder(Var2,+Freq), y=Freq))+geom_col(position ="dodge", f
 OtherS<-OtherS%>% top_n(10,Freq)
 ggplot(OtherS, aes(x=reorder(Var2,+Freq), y=Freq))+geom_col(position ="dodge", fill="steelblue")+theme(axis.text.x=element_text(angle=45,hjust=1))+xlab("Staff Member")+ylab("Frequency of work")+ggtitle("Top 10 Other Staff's case load for Programs about Substance Use")+geom_text(aes(label=Freq), vjust=-0.3, color="black", size=3.5)
 ```
+
+**_Therapist and other specialists case load based on programs_**
+
 <table>
   <tr>
     <td> Case load 1:the therapists currently working with the gambling program. As we can see three of the therapistss are doing a majority of the work </td>
@@ -408,3 +411,388 @@ There are many therapists in each program. There are specialists only at HFS fac
 There are many staff working at many different schools. The graphs for the other facilities and programs were difficult to read and many staff overlapped. Future analysis should shows exactly which programs and facilities the employees work at.
 
 # R Scripts for Research Question 2
+Research Question 2: Based on the program, what demographics are currently being served?
+
+We will look for the relationship between Program Name -> Gender Identity sorted by unique record ID Program Name -> Age sorted by unique record ID Program Name -> Race sorted by unique record ID
+
+Our objective is to understand - What are the demographics of the most served demographics? - What are the demographics of the least served demographics?
+
+```{r}
+# Program Name -> Gender Identity sorted by unique record ID
+HFS$gender_identity[HFS$gender_identity=="Female"] <- "Woman"
+HFS$gender_identity[HFS$gender_identity=="Not Obtained"] <- "Queer or Not Obtained"
+HFS$gender_identity[HFS$gender_identity=="Client Declined to Give"] <- "Queer or Not Obtained"
+HFS$gender_identity[HFS$gender_identity=="Two-Spirit"] <- "Queer or Not Obtained"
+HFS$gender_identity[HFS$gender_identity=="Non-Binary"] <- "Queer or Not Obtained"
+HFS$gender_identity[HFS$gender_identity=="Other"] <- "Queer or Not Obtained"
+
+#creating a data set with records of unique recordID, gender_identity and program_name
+Program_Gender_uID21 <- unique(HFS[ , c('recordID', 'gender_identity', 'program_name')])
+
+#Creating a data frame for gender_identity column from the above created unique data set
+df12 <- as.data.frame(table(Program_Gender_uID21$gender_identity))
+
+# This needs to be redone to show gender identity and program name
+ggplot(df12, aes(x=reorder(Var1, +Freq), y=Freq)) +
+  ggtitle("Number of times a particular gender was served")+
+  xlab("Gender") +
+  ylab("Number of Records")+
+  geom_bar(stat="identity", fill="steelblue")+
+  geom_text(aes(label=Freq), vjust=-0.3, color="black", size=3.5)+
+  theme_minimal()+theme(axis.text.x=element_text(angle=45,hjust=1))
+```
+**_the gender identity of the clients. Women make up half of the population. Men and Queer or Not Obtained make up the other half_**
+<p  align="middle">
+  <img src="https://github.com/121107/Data/blob/master/Images/53.PNG" width="700", height="300" />
+</p>
+
+```{r}
+#converting the Var1 of the data frame to numeric value
+df131$Var1<-as.numeric(df131$Var1)
+
+#This shows the Frequency of Program Use by Age
+ggplot(df131, aes(x=Var1,y=Freq, color=Var2))+geom_point()+ggtitle("Frequency of Program Use by Age")+xlab("Age")+ylab("Frequency of Use")+scale_x_continuous()+geom_line(aes(colour=Var2)) + geom_smooth(aes(group=Var2))
+```
+
+**_the age diversity in each program: This graphs show a peak for those under 20 in Mental Health. There is a slow in crease starting around 10 years old for the substance use program. Similarly we see the second bump in mental health corresponding to the peak in substance use._**
+<p  align="middle">
+  <img src="https://github.com/121107/Data/blob/master/Images/54.PNG" width="700", height="500" />
+</p>
+
+```{r}
+# removing the records which have the uncategorised simple_race code.
+HFS2<-subset(HFS,recordID!=19 & recordID!=111 &recordID!=135 &recordID!=191 &recordID!=219 &recordID!=226 &recordID!=227 &recordID!=394 &recordID!=407 &recordID!=421 &recordID!=463)
+
+#Categorising the records with gender_identity as "Woman" to "Female"
+HFS2$gender_identity[HFS2$gender_identity=="Woman"] <- "Female"
+
+#Categorising the records with gender_identity as "Not Obtained" to "NA"
+HFS2$gender_identity[HFS2$gender_identity=="Not Obtained"] <- "NA"
+
+#Categorising the records with null value in gender_identity column to "NA"
+HFS2$gender_identity[is.na(HFS2$gender_identity)]<-"NA"
+
+
+HFS2$simple_race[HFS2$simple_race==1] <- "Caucasian"
+HFS2$simple_race[HFS2$simple_race==2] <- "Alaskan Native"
+HFS2$simple_race[HFS2$simple_race==4] <- "Native American"
+HFS2$simple_race[HFS2$simple_race==8] <- "Asian"
+HFS2$simple_race[HFS2$simple_race==16] <- "Black"
+HFS2$simple_race[HFS2$simple_race==32] <- "Hawaiian Native"
+HFS2$simple_race[HFS2$simple_race==64] <- "Two or More"
+HFS2$simple_race[HFS2$simple_race==128] <- "Other"
+HFS2$simple_race[HFS2$simple_race==0] <- "Unknown"
+
+# Program Name -> Race sorted by unique record ID
+Program_Race_uID23 <- unique(HFS2[, c('recordID', 'simple_race', 'program_name')])
+
+# These should be redone to show simple race and program name
+#creating data frame with just the simple_race column
+df14 <- as.data.frame(table(Program_Race_uID23$simple_race))
+
+#creating data frame with just the program_name column
+df15 <- as.data.frame(table(Program_Race_uID23$program_name))
+
+#This shows the number of times a particular race was served
+ggplot(df14, aes(x=reorder(Var1,+Freq), y=Freq)) +
+  ggtitle("Number of times a particular race was served")+
+  xlab("Race") +
+  ylab("Number of Records")+
+  geom_bar(stat="identity", fill="steelblue")+
+  geom_text(aes(label=Freq), vjust=-0.3, color="black", size=3.5)+
+  theme_minimal()+theme(axis.text.x=element_text(angle=45,hjust=1))
+```
+
+**_the initial view of the race of the clients. A majority are caucasian_**
+<p  align="middle">
+  <img src="https://github.com/121107/Data/blob/master/Images/55.PNG" width="700", height="500" />
+</p>
+
+```{r}
+HFS3<-Program_Race_uID23
+
+#Categorising the records with simple_race as "Caucasian" to "White"
+HFS3$simple_race[HFS3$simple_race=="Caucasian"] <- "White"
+
+#Categorising the records with simple_race as "Alaskan Native" to "Non-White"
+HFS3$simple_race[HFS3$simple_race=="Alaskan Native"] <- "Non-White"
+
+#Categorising the records with simple_race as "Native American" to "Non-White"
+HFS3$simple_race[HFS3$simple_race=="Native American"] <- "Non-White"
+
+#Categorising the records with simple_race as "Asian" to "Non-White"
+HFS3$simple_race[HFS3$simple_race=="Asian"] <- "Non-White"
+
+#Categorising the records with simple_race as "Black" to "Non-White"
+HFS3$simple_race[HFS3$simple_race=="Black"] <- "Non-White"
+
+#Categorising the records with simple_race as "Hawaiian Native" to "Non-White"
+HFS3$simple_race[HFS3$simple_race=="Hawaiian Native"] <- "Non-White"
+
+#Categorising the records with simple_race as "Two or More" to "Non-White"
+HFS3$simple_race[HFS3$simple_race=="Two or More"] <- "Non-White"
+
+#Categorising the records with simple_race as "Other" to "Non-White"
+HFS3$simple_race[HFS3$simple_race=="Other"] <- "Non-White"
+
+#Categorising the records with simple_race as "Unknown" to "Non-White"
+HFS3$simple_race[HFS3$simple_race=="Unknown"] <- "Non-White"
+
+#creating a data frame with simple_race and program_name columns from the HFS3 data set
+HFS3race<-as.data.frame(table(HFS3$simple_race,HFS3$program_name))
+
+#This shows the number of people belonging to a particular race served in the programs
+ggplot(HFS3race, aes(x=Var1,fill=Var2))+geom_bar(aes(y=Freq), stat="identity",position = "dodge")+xlab("Race")+ylab("Number of people")
+```
+
+**_This is the second graph of the race with non-white people being grouped together_**
+<p  align="middle">
+  <img src="https://github.com/121107/Data/blob/master/Images/56.PNG" width="700", height="500" />
+</p>
+
+# R Scripts for Research Question 3
+
+Research Question 3: Using american community survey data, are the percent of demographics of both the population served in the 680 and 681 area codes (non-telehealth and telehealth specified )  and the percent of the demographics in Douglas county with access to internet fairly similar to each other?
+
+This is exploratory. We will look at the percents of each demographics and compare them to each other. Our objective is to try to understand if access to internet was a deterrent to those who chose to receive care via telehealth.
+
+**_Most of the analysis (comparison with ACS dataset) of this research question has been done on data cleaning section (refer to that parts of the projects in addition analysis of here)_**
+
+```{r}
+#Renaming the data in HFS for which the general_location values are "Telehealth - Phone" or "Telehealth - Video" with the new value "Telehealth"
+HFS$general_location[HFS$general_location=="Telehealth - Phone" | HFS$general_location=="Telehealth - Video"] <- "Telehealth"
+
+#Renaming the data in HFS for which the general_location value is not "Telehealth" with "Not Telehealth"
+HFS$general_location[HFS$general_location!="Telehealth"] <- "Not Telehealth"
+
+#creating a data frame with just "general_location" column from the HFS data set
+df16 <- as.data.frame(table(HFS$general_location))
+
+#This shows the number of times telehealth and non-telehealth was the general location
+ggplot(df16, aes(x=Var1, y=Freq)) +
+  ggtitle("Number of times telehealth and non-telehealth")+
+  xlab("General Location") +
+  ylab("Number of Records")+
+  geom_bar(stat="identity", fill="steelblue")+
+  geom_text(aes(label=Freq), vjust=-0.3, color="black", size=3.5)+
+  theme_minimal()
+```
+
+**_the frequency of telehealth and non telehealth_**
+<p  align="middle">
+  <img src="https://github.com/121107/Data/blob/master/Images/57.PNG" width="700", height="500" />
+</p>
+
+Our objective was to try to understand if access to internet was a deterrent to those who chose to receive care via telehealth. We predicted with the ACS data that people who are black and older would have participated in telehealth less. However our data shows that half of the patients used telehealth and the other half did not. The demographics did not seem to be a factor. We should look into other aspects such as facilities or events.
+
+# R Scripts for Research Question 4
+
+Research Question 4: What care comes from which facilities based on job title, Sc code, zip, and state?
+
+We will look for the relationship between
+Job Title -> SC code
+Job Title -> Zip
+Job Title -> State
+Job Title filtered by Event Name -> SC code
+Job Title filtered by Event Name -> Zip
+Job Title filtered by Event Name -> State
+Facility -> Program Name
+Facility -> Unique Record Id
+Facility -> Staffing
+Facility -> Event Name
+
+Our objective is to understand
+- Do the sc codes fund specific jobs?
+- What jobs are serving which areas?
+- Which facilities are currently offering which programs? (This will be expanded on by research on history of HFS and facilitys.)
+- Which facilities are not used as much?
+- How many staff members does each facility have?
+- Which events are offered at specific facilities?
+
+```{r}
+# Job Title -> SC code
+#getting a subset of the NEIA data set with just the job_title, sc_code, zip and state columns
+Job_SC_Zip_State41 <- subset(NEIA[, c('job_title','sc_code', 'zip', 'state')])
+
+#Creating a data frame with only the job_title column from the Job_SC_Zip_State41 data set
+df18 <- as.data.frame(table(Job_SC_Zip_State41$job_title))
+
+#Creating a data frame with only the sc_code column from the Job_SC_Zip_State41 data set
+df19 <- as.data.frame(table(Job_SC_Zip_State41$sc_code))
+
+#Creating a data frame with only the zip column from the Job_SC_Zip_State41 data set
+df20 <- as.data.frame(table(Job_SC_Zip_State41$zip))
+
+#Creating a data frame with only the state column from the Job_SC_Zip_State41 data set
+df21 <- as.data.frame(table(Job_SC_Zip_State41$state))
+```
+
+```{r}
+#Calculating the sum of all the frequencies in the df19 data frame
+total<-sum(df19$Freq)
+
+#This shows the usage of each Cost Center in-terms of percentage
+ggplot(df19, aes(x=reorder(Var1, Freq), y=(Freq)/total)) +
+  ggtitle("Percent of each Cost Center Use")+
+  xlab("SC Code") +
+  ylab("Percent of Use")+
+  geom_bar(stat="identity", fill="steelblue")+
+  geom_text(aes(label=round(Freq/total,2)), vjust=-1, color="black", size=3.5)+theme_minimal()+theme(axis.text.x=element_text(angle=45,hjust=1))
+```
+
+**_the percent of use that half of the cost centers that are being utilized much less utilized. In future analysis the cost centers should be looked into to find where the funding is coming from and how to build up funding in certain places_**
+<p  align="middle">
+  <img src="https://github.com/121107/Data/blob/master/Images/58.PNG" width="700", height="500" />
+</p>
+
+```{r}
+# There are 5 types of therapists. Case Coordinator,EHR specialist,office manager 2 do not have sc_codes related to pay.  Billing Specialist and OFFICE AND SYSTEMS MANAGE only have 1 entry too. We should write a paragraph about this and run this without those ones.
+table2<-as.data.frame(table2)
+ggplot(table2, aes(x=reorder(Var2,+Freq), y=Freq))+geom_bar(stat="identity", fill="steelblue")+theme(axis.text.x=element_text(angle=45,hjust=1))+ggtitle("Frequency of Use of Cost center compared with Job Titles")+xlab("Cost Centers")+ylab("Frequency of Use")+facet_grid(table2$Var1)+geom_text(aes(label=Freq), vjust=-1, color="black", size=3.5)
+```
+
+**_the cost centers compared by the job titles. The cost center 1314-64 is not used by any of these. We can conclude that job titles are not necessarily funded by specific cost centers. Upon further analysis we found 1314-64 is mainly used for Homeless Housing and Sanctuary Housing. Future analysis should focus on other aspects for example which facilities or other aspects that funding might focus on._**
+<p  align="middle">
+  <img src="https://github.com/121107/Data/blob/master/Images/59.PNG" width="700", height="500" />
+</p>
+
+```{r}
+# Job Title filtered by Event Name -> Zip
+#Creating a data frame with the zip column from the filterJob_SC_Zip_State42 data set
+zip42<-as.data.frame(table(filterJob_SC_Zip_State42$zip, filterJob_SC_Zip_State42$job_title))
+
+#This shows the Zip Codes filtered by Specific Events use by Frequency
+ggplot(zip42, aes(x=reorder(Var1,+Freq), y=Freq, fill=Var2))+geom_bar(stat="identity", position = "dodge")+theme(axis.text.x=element_text(angle=45,hjust=1))+ggtitle("Zip Codes filtered by Specific Events use by Frequency")+xlab("Zip Codes filtered by Specific Events")+ylab("Frequency")
+```
+
+**_the frequency of clients by zip code. We can see that just as before there are many from 680, 681, and 0 zip codes. Whereas there are fewer from others_**
+<p  align="middle">
+  <img src="https://github.com/121107/Data/blob/master/Images/60.PNG" width="700", height="500" />
+</p>
+
+```{r}
+# Facility -> Program Name
+#Filtering the records which have HFS centers as facilities
+facilityHFS<-Facility_Program_Staff_Event43J %>% filter(facility=="Heartland Family Service - Child and Family Center"|facility=="Heartland Family Service - Gendler"|facility=="Heartland Family Service - Heartland Homes"|facility=="Heartland Family Service - Logan"|facility=="Heartland Family Service - Sarpy"|facility=="Heartland Family Service - Lakin"|facility=="Heartland Family Service - Glenwood"|facility=="Heartland Family Service - Family Works Nebraska"|facility=="Heartland Family Service - Central")
+
+#creating a data frame with just the program_name column from the facilityHFS data set
+facilityHFSProgram<-as.data.frame(table(facilityHFS$program_name))
+
+#This show the number of times each Program is Utilized in HFS Facilities
+ggplot(facilityHFSProgram, aes(x=reorder(Var1,+Freq), y=Freq))+geom_bar( stat="identity", fill="steelblue")+ggtitle("Amount each Program is Utilized in HFS Facilities")+xlab("Program's offered at HFS Facilities")+ylab("Utilization of Programs")+geom_text(aes(label=Freq), vjust=-1, color="black", size=3.5)
+```
+```{r}
+# Facility -> Unique Record Id
+#creating data frame with just facility column from the Facility_uID44 data set
+ID<-as.data.frame(table(Facility_uID44$facility))
+
+#This shows the number of times a facility is utilized
+ID<-ID %>% top_n(10,Freq)
+ggplot(ID, aes(x=reorder(Var1, +Freq), y=Freq))+geom_bar(stat="identity", fill="steelblue")+theme(axis.text.x=element_text(angle=45,hjust=1))+ggtitle("Top 10 facility Patients Use")+xlab("Facility name")+ylab("Frequency of Patients")+geom_text(aes(label=Freq), vjust=-1, color="black", size=3.5)
+```
+```{r}
+# Facility -> Staffing
+#Filtering the records which have HFS centers as facilities
+Facility_Program_Staff_Event43JA<- subset(NEIA[, c('facility','program_name', 'staff_name', 'event_name', 'job_title')])
+facilityHFS<-Facility_Program_Staff_Event43JA %>% filter(facility=="Heartland Family Service - Child and Family Center"|facility=="Heartland Family Service - Gendler"|facility=="Heartland Family Service - Heartland Homes"|facility=="Heartland Family Service - Logan"|facility=="Heartland Family Service - Sarpy"|facility=="Heartland Family Service - Lakin"|facility=="Heartland Family Service - Glenwood"|facility=="Heartland Family Service - Family Works Nebraska"|facility=="Heartland Family Service - Central")
+
+#Creating a data frame with just staff_name from the facilityHFS data set
+facilityHFSProgram<-as.data.frame(table(facilityHFS$staff_name, facilityHFS$job_title))
+facilityHFSProgram<-facilityHFSProgram %>% filter(Freq!=0)
+#Getting the top 10 records
+topfacilityHFSProgram<-facilityHFSProgram %>% top_n(10, Freq)
+# #This shows the Top 10 Utilized Staff in HFS Facilities
+ggplot(topfacilityHFSProgram, aes(x=reorder(Var1,+Freq), y=Freq, fill=Var2))+geom_bar(stat="identity")+ggtitle("Top 10 Utilized Staff in HFS Facilities")+xlab("Top 10 Utilized Staff in HFS Facilities")+ylab("Amount of Utilization")+theme(axis.text.x=element_text(angle=45,hjust=1))+geom_text(aes(label=Freq), vjust=-1, color="black", size=3.5)
+```
+```{r}
+#Filtering the records which have schools as facilities
+
+facilitystaffSchool<-Facility_Program_Staff_Event43JA%>% filter(facility=="Abraham Lincoln High School"|facility=="Kanesville Alternative Learning Center"|facility=="Kreft Primary School"|facility=="Lewis Central Middle School"|facility=="Thomas Jefferson High School"|facility=="Wilson Middle School"|facility=="Titan Hill Intermediate School"|facility=="Lewis Central High School"|facility=="Kirn Junior High  School")
+
+#Creating a data frame with just staff_name from the facilitystaffSchool data set
+facilitySchoolProgram<-as.data.frame(table(facilitystaffSchool$staff_name, facilitystaffSchool$job_title))
+facilitySchoolProgram<-facilitySchoolProgram %>% filter(Freq!=0)
+#Getting the top 10 records
+topfacilitySchool<-facilitySchoolProgram %>% top_n(10, Freq)
+
+#This shows the Top 10 Utilized Staff in School Facilities
+ggplot(topfacilitySchool, aes(x=reorder(Var1,+Freq), y=Freq, fill=Var2))+geom_bar( stat="identity")+ggtitle("Top 10 Utilized Staff in School Facilities")+xlab("Top 10 Staff in School Facilities")+ylab("Frequency of Utilization")+theme(axis.text.x=element_text(angle=45,hjust=1))+geom_text(aes(label=Freq), vjust=-1, color="black", size=3.5)
+```
+```{r}
+#Filtering the records which have facilities other than schools and HFS centers
+facilityOtherProgram<-Facility_Program_Staff_Event43JA %>% filter(facility=="Center Mall Office"| facility=="North Omaha Intergenerational Campus (Service)"| facility=="Omaha (Spring) Reporting Center"| facility=="Sanctuary House"| facility=="Omaha (Blondo) Reporting Center"| facility=="Micah House"|facility=="Bellevue Reporting Center")
+
+#Creating a data frame with just staff_name from the facilityOtherProgram data set
+facilityOtherProgram<-as.data.frame(table(facilityOtherProgram$staff_name, facilityOtherProgram$job_title))
+
+#Getting the top 10 records
+topfacilityOther<-facilityOtherProgram %>% filter(Freq!=0)%>% top_n(10,Freq)
+
+#This shows the top 10 Utilized Staff in Facilities other than schools and HFS centers
+ggplot(topfacilityOther, aes(x=reorder(Var1,+Freq), y=Freq, fill=Var2))+ geom_bar(stat="identity")+ggtitle("Top 5 Utilized Staff in Other Facilities")+xlab("Top 10 Staff in Other Facilities")+ylab("Frequency of Utilization")+theme(axis.text.x=element_text(angle=45,hjust=1))+geom_text(aes(label=Freq), vjust=-1, color="black", size=3.5)
+```
+```{r}
+# Facility -> Event Name
+#creating a data frame with just event_name column from the facilityHFS data set
+facilityHFSEvent<-as.data.frame(table(facilityHFS$event_name, facilityHFS$job_title))
+
+#Getting the top 10 records
+topA<-facilityHFSEvent %>% top_n(10,Freq)
+
+#This shows the frequency of Top 10 Events offered by HFS facilities
+ggplot(topA, aes(x=reorder(Var1,+Freq), y=Freq, fill=Var2))+geom_bar(stat="identity", position = "dodge", width = 0.5)+ggtitle("Frequency of Top 10 Events offered by HFS facilities")+xlab("Top 10 Events offered by HFS facilities")+ylab("Frequency")+theme(axis.text.x=element_text(angle=45,hjust=1))
+```
+
+## **_Top 10 (or 5) events and staff offerd by different facilities and programs_**
+
+<table>
+  <tr>
+    <td> the number of programs offered at HFS facilities </td>
+     <td>the top 10 facilities and the amount of patients that utilized care from those facilities. As we can see most are HFS facilities. Only one of the top ten are schools.</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/61.PNG" width=700 height=300></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/62.PNG" width=700 height=300></td>
+  </tr>
+  <tr>
+    <td> the top ten utilized staff at HFS facilities. Since these were not separated by job title this shows all types of job titles. However, it looks as though the most utilized staff are other employees.</td>
+     <td> the top ten staff at schools. Although there were very few other employees, there are still some in the top 10.</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/63.PNG" width=700 height=300></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/64.PNG" width=700 height=300></td>
+  </tr>
+  <tr>
+    <td> 10 utilized staff at other facilities are mostly therapists.</td>
+     <td>the top ten events offered by HFS facilities are mostly offered by therapists. The other employees who worked on individual therapy and collateral notes are by supervisors which also might be practicing social work.</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/65.PNG" width=700 height=300></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/66.PNG" width=700 height=300></td>
+  </tr>
+ </table>
+
+ Our objective was to understand
+- Do the sc codes fund specific jobs?
+
+No, they do not fund specific jobs.
+
+- What jobs are serving which areas?
+
+This question was a little unfocused. The jobs are not serving specific areas, but the jobs serving clients from specific areas. Most people who are therapists are serving the majority of patients in each zip code. The 685 zip code had a majority of the other employees helping patients in those areas
+
+- Which facilities are currently offering which programs?
+
+HFS Gendler is the only one that offers all the programs. Schools only offer mental health programs. The Center Mall Office, HFS-Central, HFS-Child and Family Center, HFS Family Works Nebraska, HFS-Glenwood, HFS-Logan, HFS-Sarpy, and Omaha (Blondo) Reporting Center offer two programs. Besides the schools, Sanctuary House, Omaha (Spring) Reporting Center, North Omaha Intergenerational Campus (Service), Micah House, HFS-Lakin, HFS-Heartland Homes, Center Mall Office, and Bellevue Reporting Center only offer mental health programs.
+
+- Which facilities are not used as much?
+
+The schools have less instances of use. Out of the schools the facility utilized the least is Kanesville Alternative Learning Center. Out of the HFS facilities the lowest utilized facility was HFS - Heartland Home and HFS - Lakin. Heartland Home is a homeless transitional housing. Out of the other facilities the sanctuary house is the least utilized.
+
+- How many staff members does each facility have?
+
+We found that the number of staff at each facility seems to be extremes. It is either a high number or a low number. Some were low for a reason, such as the sanctuary houses or homeless housing. It would be more interesting to see the staff numbers for each facility with a third variable of cost centers.
+
+- Which events are offered at specific facilities?
+
+This question was skipped because there was too much data for events that was not specifically cleaned. 
