@@ -85,12 +85,12 @@ ggplot(Gendler, aes(x=reorder(job_title,+Freq), y=Freq, fill=facility))+geom_col
      <td>Holiday Mention</td>
   </tr>
   <tr>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/11.PNG" width=270 height=480></td>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/1.PNG" width=270 height=480></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/11.PNG" width=700 height=500></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/1.PNG" width=700 height=500></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/11.PNG" width=270 height=480></td>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/2.PNG" width=270 height=480></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/11.PNG" width=700 height=500></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/13.PNG" width=700 height=500></td>
 
   </tr>
  </table>
