@@ -93,44 +93,44 @@ ggplot(Gendler, aes(x=reorder(job_title,+Freq), y=Freq, fill=facility))+geom_col
     <td><img src="https://github.com/121107/Data/blob/master/Images/17.PNG" width=700 height=300></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/18.PNG" width=700 height=500></td>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/19.PNG" width=700 height=500></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/18.PNG" width=700 height=300></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/19.PNG" width=700 height=300></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/20.PNG" width=700 height=500></td>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/21.PNG" width=700 height=500></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/20.PNG" width=700 height=300></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/21.PNG" width=700 height=300></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/22.PNG" width=700 height=500></td>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/23.PNG" width=700 height=500></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/22.PNG" width=700 height=300></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/23.PNG" width=700 height=300></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/24.PNG" width=700 height=500></td>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/25.PNG" width=700 height=500></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/24.PNG" width=700 height=300></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/25.PNG" width=700 height=300></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/26.PNG" width=700 height=500></td>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/27.PNG" width=700 height=500></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/26.PNG" width=700 height=300></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/27.PNG" width=700 height=300></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/28.PNG" width=700 height=500></td>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/29.PNG" width=700 height=500></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/28.PNG" width=700 height=300></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/29.PNG" width=700 height=300></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/30.PNG" width=700 height=500></td>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/31.PNG" width=700 height=500></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/30.PNG" width=700 height=300></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/31.PNG" width=700 height=300></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/32.PNG" width=700 height=500></td>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/33.PNG" width=700 height=500></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/32.PNG" width=700 height=300></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/33.PNG" width=700 height=300></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/34.PNG" width=700 height=500></td>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/35.PNG" width=700 height=500></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/34.PNG" width=700 height=300></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/35.PNG" width=700 height=300></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/36.PNG" width=700 height=500></td>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/37.PNG" width=700 height=500></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/36.PNG" width=700 height=300></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/37.PNG" width=700 height=300></td>
   </tr>
 
  </table>
