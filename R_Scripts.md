@@ -865,4 +865,4 @@ Among all of these, we did ANOVA analysis. However, the results was not satisfac
 ##### (abubakarsiddiqurra@unomaha.edu, lgmorton@unomaha.edu, schandiri@unomaha.edu)
 
 ## Acknowledgement
-# We group members 5 shows our highly gratitute to Dr. Andrea Grover to teach us all steps in data analysis (make decisions from data inclusing R code). We also shows our hughly gratitute to Heartland Family Service (HFS) for providing the dataset for education purposes.
+###### We group members 5 shows our highly gratitute to Dr. Andrea Grover to teach us all steps in data analysis (make decisions from data including R code). We also shows our highly gratitute to Heartland Family Service (HFS) for providing the dataset for education purposes.
