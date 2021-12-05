@@ -278,7 +278,7 @@ OtherS<-OtherS%>% top_n(10,Freq)
 ggplot(OtherS, aes(x=reorder(Var2,+Freq), y=Freq))+geom_col(position ="dodge", fill="steelblue")+theme(axis.text.x=element_text(angle=45,hjust=1))+xlab("Staff Member")+ylab("Frequency of work")+ggtitle("Top 10 Other Staff's case load for Programs about Substance Use")+geom_text(aes(label=Freq), vjust=-0.3, color="black", size=3.5)
 ```
 
-**_Therapist and other specialists case load based on programs_**
+## **_Therapist and other specialists case load based on programs_**
 
 <table>
   <tr>
@@ -772,6 +772,7 @@ ggplot(topA, aes(x=reorder(Var1,+Freq), y=Freq, fill=Var2))+geom_bar(stat="ident
   </tr>
  </table>
 
+# Final analysis of objectives in research question 4
  Our objective was to understand
 - Do the sc codes fund specific jobs?
 
@@ -795,4 +796,70 @@ We found that the number of staff at each facility seems to be extremes. It is e
 
 - Which events are offered at specific facilities?
 
-This question was skipped because there was too much data for events that was not specifically cleaned. 
+This question was skipped because there was too much data for events that was not specifically cleaned.
+
+# Clustering
+Clustering is the use of unsupervised technique for grouping similar objects, finding dissimilarities between groups. Clustering analysis had done in this analysis. One of the major problem is to do clustering by multiple categorical values. In this experiment (to analyze a research question), clustering represents into 2D space in stead of multi dimensional space. The clustering analysis was showed by the dissimilarities and similliraties in numerical value by using gower metric. The elbow method was used to know how many clusters do we need. t_SNE was used to avoid the using of more computation.
+
+Several clustering analysis was analyzed, among them: clustering between, 1. program_name, facility and sc_code 2. age, gender_identity, simple_race 3. general_location, program_name, sc_code
+
+clustering for general_location, program_name and sc_code. This cluster was showed a visualization how many observations were similar based on general_location, program_name and sc_code. Here, we showed only a clustering.
+
+```{r}
+myVars1 <- c("general_location", "program_name", "sc_code")
+HFS3c <- HFS
+newHFS3 <- HFS3c[myVars1]
+
+library(cluster)
+gower_df3 <- cluster::daisy(newHFS3[, 1:3], metric = "gower",
+                            type = list(ordratio = 1:3))
+
+summary(gower_df3)
+
+silhouette <- c()
+silhouette = c(silhouette, NA)
+for(i in 2:10){
+  pam_clusters = pam(as.matrix(gower_df3),
+                     diss = TRUE,
+                     k = i)
+  silhouette = c(silhouette ,pam_clusters$silinfo$avg.width)
+}
+plot(1:10, silhouette,
+     xlab = "Clusters",
+     ylab = "Silhouette Width")
+lines(1:10, silhouette)
+
+pam_model3 = pam(gower_df3, diss = TRUE, k = 4)
+newHFS3[pam_model3$medoids, ]
+
+library(dplyr)
+pam_summary3 <- newHFS3 %>%
+  mutate(cluster = pam_model3$clustering) %>%
+  group_by(cluster) %>%
+  do(cluster_summary = summary(.))
+pam_summary3$cluster_summary[[2]]
+
+library(Rtsne)
+library(ggplot2)
+tsne_object3 <- Rtsne(gower_df3, is_distance = TRUE)
+tsne_df3 <- tsne_object3$Y %>%
+  data.frame() %>%
+  setNames(c("X", "Y")) %>%
+  mutate(cluster = factor(pam_model3$clustering))
+ggplot(aes(x = X, y = Y), data = tsne_df3) +
+  geom_point(aes(color = cluster))+
+  stat_ellipse(aes(x=X, y=Y,color=cluster),type = "norm") +
+  theme(legend.position='none')
+```
+
+**_Clustering general_location, program_name and sc_code_**
+<p  align="middle">
+  <img src="https://github.com/121107/Data/blob/master/Images/67.PNG" width="700", height="500" />
+</p>
+
+Among all of these, we did ANOVA analysis. However, the results was not satisfactory. Hence, we eliminate the analysis in here. In addition, we did more analysis more than the visualization analysis presented above. However, we choose the most significant results among all visualization analysis.
+
+## Contributors for the project
+##### Abu Bakar Siddiqur Rahman, Lisa Kiemde, Shravya Chandiri
+##### Do not hesitate to contact us if you have any questions
+##### (abubakarsiddiqurra@unomaha.edu, lgmorton@unomaha.edu, schandiri@unomaha.edu)
