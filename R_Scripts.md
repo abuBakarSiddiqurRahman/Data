@@ -314,6 +314,6 @@ ggplot(OtherS, aes(x=reorder(Var2,+Freq), y=Freq))+geom_col(position ="dodge", f
     <td> Case load 9:</td>
    </tr>
   <p  align="middle"> <tr>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/47.PNG" width=700 height=300></td>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/47.PNG" width=700 height=300 align=middle></td>
   </tr> </p>
  </table>
