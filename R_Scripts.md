@@ -312,8 +312,99 @@ ggplot(OtherS, aes(x=reorder(Var2,+Freq), y=Freq))+geom_col(position ="dodge", f
   </tr>
   <tr>
     <td> Case load 9:</td>
-   </tr>
-  <p  align="middle"> <tr>
-    <td><img src="https://github.com/121107/Data/blob/master/Images/47.PNG" width=700 height=300 align=middle></td>
-  </tr> </p>
+
+  </tr>
+  <tr>
+    <td><img src="https://github.com/121107/Data/blob/master/Images/47.PNG" width=700 height=300></td>
+  </tr>
  </table>
+
+```{r}
+#Creating a data frame with facility and job_title columns from the HFS data
+facilityjob<-as.data.frame(table(HFS$facility,HFS$job_title))
+
+#filtering for records which have atleast one occurance
+facilityjob<-facilityjob %>% filter(Freq!=0)
+
+#filtering for records which have the only the HFS facilities -"Heartland Family Service - Child and Family Center" , "Heartland Family Service - Gendler", "Heartland Family Service - Heartland Homes", "NHeartland Family Service - Logan", "Heartland Family Service - Sarpy", "Heartland Family Service - Lakin", "Heartland Family Service - Glenwood", "Heartland Family Service - Family Works Nebraska",, "Heartland Family Service - Central"
+facilityjobHFS<-facilityjob %>% filter(Var1=="Heartland Family Service - Child and Family Center"|Var1=="Heartland Family Service - Gendler"|Var1=="Heartland Family Service - Heartland Homes"|Var1=="NHeartland Family Service - Logan"|Var1=="Heartland Family Service - Sarpy"|Var1=="Heartland Family Service - Lakin"|Var1=="Heartland Family Service - Glenwood"|Var1=="Heartland Family Service - Family Works Nebraska"|Var1=="Heartland Family Service - Central")
+
+# This show the frequency of each job title resource utilization at HFS facilities
+ggplot(facilityjobHFS, aes(x=reorder(Var2,+Freq), y=Freq))+geom_col(position ="dodge", fill="steelblue")+theme(axis.text.x=element_text(angle=45,hjust=1))+facet_wrap(reorder(facilityjobHFS$Var1, -facilityjobHFS$Freq), labeller = labeller(label_wrap_gen(width=10)))+ggtitle("Job Type by Frequency of Use at HFS Facilities")+xlab("Job Type")+ylab("Frequency of Use")+geom_text(aes(label=Freq), vjust=-0.3, color="black", size=3.5)
+```
+**_the frequency of cases by job type for HFS facilities. Gendler, Central, Child and Family, and Sarpy are the most used facilitie._**
+<p  align="middle">
+  <img src="https://github.com/121107/Data/blob/master/Images/48.PNG" width="700", height="500" />
+</p>
+
+```{r}
+#filtering for records which have the only the school facilities
+facilityjobSchool<-facilityjob %>% filter(Var1=="Abraham Lincoln High School"|Var1=="Kanesville Alternative Learning Center"|Var1=="Kreft Primary School"|Var1=="Lewis Central Middle School"|Var1=="Thomas Jefferson High School"|Var1=="Wilson Middle School"|Var1=="Titan Hill Intermediate School"|Var1=="Lewis Central High School"|Var1=="Kirn Junior High  School")
+
+# This show the frequency of each job title resource utilization at school facilities
+ggplot(facilityjobSchool, aes(x=reorder(Var2,+Freq), y=Freq))+geom_col(position ="dodge", fill="steelblue")+theme(axis.text.x=element_text(angle=45,hjust=1))+facet_wrap(reorder(facilityjobSchool$Var1, -facilityjobSchool$Freq), labeller = labeller(label_wrap_gen(width=10)))+ggtitle("Job Type Frequency of Use at Schools")+xlab("Job Type")+ylab("Frequency of Use")+geom_text(aes(label=Freq), vjust=-0.3, color="black", size=3.5)
+```
+
+**_the frequency of cases by job type for Schools. Almost all the schools are in Council Bluffs or Lewis Central School Districts_**
+<p  align="middle">
+  <img src="https://github.com/121107/Data/blob/master/Images/49.PNG" width="700", height="500" />
+</p>
+
+```{r}
+#filtering for records which have the only the other facilities  (not HFS or school)
+facilityjobOther<-facilityjob %>% filter(Var1=="Center Mall Office"| Var1=="North Omaha Intergenerational Campus (Service)"| Var1=="Omaha (Spring) Reporting Center"| Var1=="Sanctuary House"| Var1=="Omaha (Blondo) Reporting Center"| Var1=="Micah House"|Var1=="Bellevue Reporting Center")
+
+# This show the frequency of each job title resource utilization at other facilities
+ggplot(facilityjobOther, aes(x=reorder(Var2,+Freq), y=Freq))+geom_col(position ="dodge", fill="steelblue")+theme(axis.text.x=element_text(angle=45,hjust=1))+facet_wrap(reorder(facilityjobOther$Var1, -facilityjobOther$Freq), labeller = labeller(label_wrap_gen(width=10)))+ggtitle("Job Type Frequency of Use at Other Facilities")+xlab("Job Type")+ylab("Frequency of Use")+geom_text(aes(label=Freq), vjust=-0.3, color="black", size=3.5)
+```
+
+**_the frequency of cases by job type for Other facilities. Most of them are reporting centers. Just like the schools this only has Therapists and Other people._**
+<p  align="middle">
+  <img src="https://github.com/121107/Data/blob/master/Images/50.PNG" width="700", height="500" />
+</p>
+
+```{r}
+#Filtering the staff records for which the facility is any school facility
+facilitystaffSchool<-facilitystaff %>% filter(Var1=="Abraham Lincoln High School"|Var1=="Kanesville Alternative Learning Center"|Var1=="Kreft Primary School"|Var1=="Lewis Central Middle School"|Var1=="Thomas Jefferson High School"|Var1=="Wilson Middle School"|Var1=="Titan Hill Intermediate School"|Var1=="Lewis Central High School"|Var1=="Kirn Junior High  School")
+
+#This shows the frequency of utilization of each staff member at school facilities
+ggplot(facilitystaffSchool, aes(x=reorder(Var1,+Freq), y=Freq,fill=Var4))+geom_col(position ="dodge")+theme(axis.text.x=element_text(angle=45,hjust=1))+facet_wrap(reorder(facilitystaffSchool$Var2, -facilitystaffSchool$Freq), labeller = labeller(label_wrap_gen(width=10)))+ggtitle("Job Type Frequency of Use at Schools")+xlab("Job Type")+ylab("Frequency of Use")+geom_text(aes(label=Freq), vjust=-0.3, color="black", size=3.5)
+```
+
+**_the frequency each therapist works at each school. From this we can see a common theme that most work at many different schools instead of specifically in one school or one district._**
+<p  align="middle">
+  <img src="https://github.com/121107/Data/blob/master/Images/51.PNG" width="700", height="500" />
+</p>
+
+```{r}
+#Filtering the staff records for which the facility is any other facilities (not school or HFS)
+facilitystaffOther<-facilitystaff %>% filter(Var1=="Center Mall Office"| Var1=="North Omaha Intergenerational Campus (Service)"| Var1=="Omaha (Spring) Reporting Center"| Var1=="Omaha (Blondo) Reporting Center"| Var1=="Micah House")
+
+#This shows the frequency of utilization of each staff member at other facilities
+facilitystaffOther<-facilitystaffOther %>% filter(Freq>=100)
+ggplot(facilitystaffOther, aes(x=reorder(Var2,+Freq), y=Freq, fill=Var4))+geom_col(position ="dodge")+theme(axis.text.x=element_text(angle=45,hjust=1))+facet_wrap(facilitystaffOther$Var1, labeller = labeller(label_wrap_gen(width=10)))+ggtitle("Top 5 Other Facilities Staff Frequency of Interaction with Clients greater than 100")+xlab("Job Type")+ylab("Frequency of Use")+coord_flip()
+```
+
+**_the staff that have over 100 instances of meeting with clients_**
+<p  align="middle">
+  <img src="https://github.com/121107/Data/blob/master/Images/52.PNG" width="700", height="500" />
+</p>
+
+# Final Analysis for Objectives in Reserach Question 1
+-How many people are enrolled in each program? And how much do they use each program?
+
+There are currently 587 people served. 8 clients were enrolled in a gambling program, 88 clients were enrolled for a substance use program, and 482 clients were enrolled in a mental health program. There are 5 people enrolled in substance use programs and gambling programs. There are 83 people enrolled in substance use programs and mental health programs.
+
+-How many staff members work in each program and specific facilities?
+
+Many staff members work at various programs and facilities. We noted that a few work in many programs. The staff members working at schools tend to work at many schools and only practice mental health programs at those schools and none of them were specialists. The staff members at other facilities are therapists and other employees. The other employees were the only ones working at the sanctuary house.
+
+-How many job titles work in each program and specific facilities?
+
+There are many therapists in each program. There are specialists only at HFS facilities. The facilities showed a range of high use to low use. Future inquires and analysis should look into the high use and low use of facilities and cost object numbers.
+
+-How many staff members work in multiple facilities and programs?
+
+There are many staff working at many different schools. The graphs for the other facilities and programs were difficult to read and many staff overlapped. Future analysis should shows exactly which programs and facilities the employees work at.
+
+# R Scripts for Research Question 2
