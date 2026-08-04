@@ -1,10 +1,11 @@
 # Data Exploration
 
-‘‘‘python
+```python
 import pandas as pd
+
 df = pd.read_csv("data.csv")
 print(df.head())
-‘‘‘
+```
 
 ### Scatter Plot with two variables
 This plot will help to understand by getting the average age
