@@ -1,5 +1,11 @@
 # Data Exploration
 
+‘‘‘python
+import pandas as pd
+df = pd.read_csv("data.csv")
+print(df.head())
+‘‘‘
+
 ### Scatter Plot with two variables
 This plot will help to understand by getting the average age
 for each program. The data visualization provide a quick view
